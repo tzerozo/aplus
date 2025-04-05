@@ -449,15 +449,165 @@
               <li>Threads: these programs breaks down into some number of little pieces called threads.</li>
               <li>Each thread is a series of instructions designed to do a particular job with the data</li>
             </ul>
+          <li>Wait states</li>
+            <ul>
+              <li>CPU is faster than RAM. pipeline stalls are called wait states, where CPU waits for RAM.</li>
+              <li>Static RAM: SRAM is very high speed RAM, built-in to CPU, to reduce wait states.</li>
+              <li>SRAM preloads many instructions as possible</li>
+              <li>SRAM keeps copies of already run instructions and data, using "Cache" feature.</li>
+              <li>SRAM size</li>
+                <ul>
+                  <li>Early Cache</li>
+                    <ul>
+                      <li>L1 cache = Cache on CPU</li>
+                      <li>L2 cache = Cache on Motherboard. Half speed of CPU</li>
+                      <li>Connection between CPU, MCC, RAM, L2 Cache</li>
+                      <li>Frontside bus = Address bus + EDB(connecting CPU, MCC, and RAM)</li>
+                      <li>Backside bus = Connection between CPU and L2 Cache</li>
+                    </ul>
+                  <li>Current Cache</li>
+                    <ul>
+                      <li>Cache on CPU: L1, L2, L3</li>
+                      <li>Connection: Integrated Memory Controller</li>
+                    </ul>
+                </ul>
+            </ul>
+          <li>Multithreading</li>
+            <ul>
+              <li>Multithreading enables CPU to run multiple threads at same time.</li>
+              <li>Multithreading limitations</li>
+                <ul>
+                  <li>OS and Application must be designed to take advantage of the feature</li>
+                  <li>CPU simulates actions of a second processor, but doesn't double the processing power.</li>
+                </ul>
+            </ul>
         </ul>
       <li>Multicore processing</li>
+        <ul>
+          <li>dual-core architecture = combine 2 CPUs(or cores) into single chip.</li>
+          <li>Dual-core CPU: 2 execution units, 2 sets of pipelines: share caches and RAM.</li>
+          <li></li>
+        </ul>
       <li>IMC integrated memory controller</li>
+        <ul>
+          <li>IMC is now in CPU, not in MOBO.</li>
+          <li>IMC optimize the flow of information into and out from CPU.</li>
+        </ul>
       <li>GPU graphics processing uint</li>
+        <ul>
+          <li>integrated GPU into CPU enhances overall performance of computer</li>
+          
+        </ul>
       <li>Security</li>
+        <ul>
+          <li>CPU employ NX bit Technology that enables CPU to protect certain sections of memory.</li>
+          <li>Micrsoft term: DEP Data Execution Prevention, turn on by default in OS.</li>
+          <li>NX bit Technology</li>
+            <ul>
+              <li>Intel: XD bit (eXecute Disable)</li>
+              <li>AMD: Enhanced Virus Protection</li>
+              <li>ARM: XN (eXecute Never)</li>
+            </ul>
+        </ul>
     </ol>
+<hr><br>
+<h3>CPU Sockets</h3>
+    <ol>
+      <li>Intel: LGA 1200,1700,2066</li>
+        <ul>
+          <li>Brand: Intel Core</li>
+          <li>Brand Modifier: i7</li>
+          <li>Generation: 7</li>
+          <li>SKU numbers: 500</li>
+          <li>Alpha suffix: U (U =ultra-low power for desktop)</li>
+        </ul>
+      <li>AMD: AM4,AM5,TR4</li>
+        <ul>
+          <li>Brand: AMD Ryzen</li>
+          <li>Market segment or power: 7</li>
+          <li>Generation: 5</li>
+          <li>Performance level: 8</li>
+          <li>Model number: 00</li>
+          <li>Power suffix: X (X indicates high performance)</li>
+        </ul>
+      <li>Cooling</li>
+        <ul>
+          <li>heat sink: copper or metal device designed to dissipate heat from whatever it touches.</li>
+          <li>Passive cooling: heat sink by itself.</li>
+          <li>Active cooling aka active heat sink: heat sink with fans on top.</li>
+          <li>Liquid cooling: running some liquid through metal block that sits on top of CPU,absorbing heat.</li>
+          <li>Liquid get heated by block, runs out of block into something that cools the liquid, the pumped through block again.</li>
+          <li>Liquid cooling main parts:</li>
+            <ul>
+              <li>Hollow metal block sits on CPU</li>
+              <li>Pump to move liquid around</li>
+              <li>Some device to cool liquid</li>
+            </ul>
+          <li>Thermal Paste</li>
+          <li>Heat Sinks</li>
+            <ul>
+              <li>Intel: four plungers, push to click on corresponding holes on Motherboard</li>
+              <li>AMD: screw bracket to secure two points on the outside of CPU</li>
+            </ul>
+        </ul>
+        <li>Overclocking</li>
+          <ul>
+            <li>Motherboard speed, multiplier, and voltage must be set properly for CPU to work.</li>
+            <li>Modern motherboard set automatically by using CPUID functionality</li>
+            <li>Manual Adjust</li>
+              <ul>
+                <li>Move jumper</li>
+                <li>Change CMOS setting</li>
+                <li>via Software</li>
+              </ul>
+            <li>Potential issues of Overclocking</li>
+              <ul>
+                <li>Voids most warrenties</li>
+                <li>System lockups</li>
+                <li>Reboots</li>
+                <li>unexeptectd shutdowns</li>
+              </ul>
+            <li>Overclocking Utilities</li>
+              <ul>
+                <li>Intel Extreme Tuning Utility: (Intel XTU)</li>
+                <li>AMD Override Utility</li>
+              </ul>
+            <li>Overclocking steps</li>
+              <ul>
+                <li>Increase bus speed for system through jumpers, CMOS settings, or software.</li>
+                <li>Increase voltage going into CPU by changing a jumper or CMOS settings</li>
+                <li>Jumper setting or button on Motherboard: CMOS clear or CLRTC - makes CMOS setting back to default.</li>
+                <li>Clearing CMOS: turn off.grab shunt(tiny littel plastic piece). place over two jumper wires for a moment. restart PC. go to CMOS. restore settings</li>
+              </ul>
+          </ul>
+      </ol>
+<hr><br>
+<h3>Troubleshooting CPU</h3>
+<ol>
+  <li>Overheating</li>
+    <ul>
+      <li>too much thermal paste can impded flow of heat</li>
+      <li>not enough thermal paste or unevenly spread</li>
+      <li>failure to connect fan power to MOBO</li>
+    </ul>
+  <li>Catastrophic Failure</li>
+    <ul>
+      <li>BSoD aka Windows stop error</li>
+      <li>Spinning pinwheel</li>
+      <li>Kernel panic</li>
+    </ul>
+  <li>Beyond A+</li>
+    <ul>
+      <li>Performance core: high-power|high-wattage core</li>
+      <li>Efficiency core: low-power|high-wattage</li>
+      <li>Process node: CPU die size 10nm process node.</li>
+      <li></li>
+    </ul>
+  
+</ol>
 
-
-
+<hr><br>
+<h3>RAM</h3>
 
 
 
