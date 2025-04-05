@@ -105,24 +105,362 @@
 <h3>Troubleshooting methodology</h3>
   <ol>
     <li>Identify problem</li>
+      <ul>
+        <li>gather info from user</li>
+        <li>identify user changes</li>
+        <li>inquire environmental or infrastructure changes</li>
+        <li>perform backup before making changes</li>
+      </ul>
      
     <li>Establish a theory of probable cause</li>
+      <ul>
+        <li>question the obvious</li>
+        <li>conduct internal or externla research based on symptons</li>
+      </ul>
     <li>Test theory to determine the cause</li>
-    <li>Establish plan of action to resolve the problem and identify potential effects</li>
-    <li>Implement solution or escalates as necessary</li>
+      <ul>
+        <li>theory confirmed: determine next steps to resolve problem.</li>
+        <li>theory not confirmed: re-establish new theory or escalate.</li>
+      </ul>
+    <li>Establish plan of action to resolve the problem and implement solution</li>
+      <ul>
+        <li>refer to vendor's instruction for guidance</li>
+        <li>additional resources: replacement parts</li>
+      </ul>
     <li>Verify full system functionality and implement preventive measure</li>
+      <ul>
+        <li>Confirmation from user</li>
+        <li>Educate the user from making same mistake</li>
+      </ul>
     <li>Document findings, actions, outcomes, and lessons learned</li>
+      <ul>
+        <li>What was the problem</li>
+        <li>How did you fix it</li>
+      </ul>
   </ol>
 
+  <hr>
+  <br>
+
+  <h3>Operation Systems</h3>
+    <ol>
+      <li>Windows OS</li>
+        <ul>
+          <li>context menu: right click</li>
+          <li>Quiick link menu: right click on Start menu or Windows logo + X</li>
+            <ul>
+              <li>Installed apps</li>
+              <li>Power options</li>
+              <li>Event viewer</li>
+              <li>System</li>
+              <li>Device Manager</li>
+              <li>Network Connections</li>
+              <li>Disk management</li>
+              <li>Computer management</li>
+              <li>Terminal</li>
+              <li>Terminal Admin</li>
+              <li>Task manager</li>
+              <li>Settings</li>
+              <li>File explorer</li>
+              <li>Search</li>
+              <li>Run</li>
+              <li>Shutdown or sign <output></output></li>
+              <li>Desktop</li>
+            </ul>
+          <li></li>
+        </ul>
+      <li>MacOS</li>
+        <ul>
+          <li>menu bar: top of screen</li>
+            <ul>
+              <li>left side of menu bar: Apple and app menus</li>
+              <li>right side of menu bar: status menu (Windows notification area)</li>
+            </ul>
+          <li>Mission control: show all open apps, can switch (KB-SC: Control + Up)</li>
+          <li>Spaces: aka Desktops (KB-SC: Control + Left/Right)</li>
+        </ul>
+      <li>Linux</li>
+        <ul>
+          <li>Distros: offer different user interfaces aka DE (desktop environment).</li>
+          <li></li>
+        </ul>
+    </ol>
+
+    <hr>
+    <br>
+
+    <h3>File Structure and Paths</h3>
+    <ol>
+      <li>Windows</li>
+        <ul>
+          <li>root directory: where OS is installed</li>
+          <li>C:\Program Files</li>
+          <li>C:\Program Files (x86)</li>
+          <li>C:\Users\John\Desktop</li>
+          <li></li>
+        </ul>
+      <li>Mac</li>
+        <ul>
+          <li>Finder: files and folders</li>
+          <li>Unique Users folder inaccessible by other users</li>
+        </ul>
+      <li>Linux</li>
+        <ul>
+          <li>Linux use "Home folder" instead of "Users folder".</li>
+          <li></li>
+        </ul>
+    </ol>
+
+  <h3>Settings</h3>
+    <ol>
+      <li>Windows</li>
+        <ul>
+          <li>Settings</li>
+            <ul>
+              <li>central location and most of importtant tech tools</li>
+            </ul>
+          <li>Control Panel</li>
+            <ul>
+              <li>handles maintenance, upgrade,e and configuration aspects of Windows</li>
+            </ul>
+        </ul>
+      <li>Mac</li>
+        <ul>
+          <li>System Preferences</li>
+            <ul>
+              <li>access to almost all settins to administer macOS</li>
+            </ul>
+          <li>Utilities</li>
+            <ul>
+              <li>located inside Application folder (KB-SC: Command-Shift-U)</li>
+              <li>acess to tools to perform services: beyond system preferences (activity monitor, terminal)</li>
+            </ul>
+        </ul>
+      <li>Linux</li>
+        <ul>
+          <li>no one-stop launch points.Various DE have their own launch points.</li>
+          <li>KDE: System Settings</li>
+          <li>Gnome: Settings</li>
+        </ul>
+    </ol>
+
+    <hr>
+    <br>
+
+    <h3>CPU</h3>
+    <ol>
+      <li>CPU core components</li>
+        <ul>
+          <li>Man in the Box</li>
+            <ul>
+              <li>CUP = man in the box</li>
+              <li>EDB: External data bus - connects lightbulb inside the box with lightbulb outside</li>
+              <li>Registers aka worktables: Intel 8088</li>
+                <ul>
+                  <li>Register store internal commands and data</li>
+                  <li>8088 workstable havae 16 light bulbs each, not in pairs.</li>
+                  <li>Each light bulbs is controlled by single switch, man in the box control them.</li>
+                  <li>Registers are tiny storage area on CPU, made up of microscopic semiconductor circuits that hold charges.</li>
+                </ul>
+                <ul>
+                  <li>8088 General purpose registers</li>
+                    <ul>
+                      <li>AX</li>
+                      <li>BX</li>
+                      <li>CX</li>
+                      <li>DX</li>
+                    </ul>
+                  <li>32bit processor General purpose registers</li>
+                    <ul>
+                      <li>EAX</li>
+                      <li>EBX</li>
+                      <li>ECX</li>
+                    </ul>
+                  <li>64bit processor General purpose registers</li>
+                    <ul>
+                      <li>RAX</li>
+                      <li>RBX</li>
+                      <li>RCX</li>
+                    </ul>
+                </ul>
+              <li>Codebook aka instructions for man in the Box</li>
+                <ul>
+                  <li>Codebook: one for man in the box, one for you.</li>
+                  <li>Coodebook commands = microprocessor's machine language.</li>
+                  <li>01010101 could mean "Add AX to BX"</li>
+                  <li>Line of codes = machine language commands, place to EDB one at a time.</li>
+                  <li>CPU instruction set = all machine language commands that CPU understand.</li>
+                </ul>
+            </ul>
+          <li>Clock wire aka CLK: A charge on CLK wire tells CPU (man in the Box) that another piece of information is waiting to be processed. </li>
+          <li>Clock cycle: single voltage charge to CLK wire.</li>
+          <li>CPU requires at least two clock cycles to act on a command, up to hunderds</li>
+          <li>Clock speed:  maximum number of clock cycles taht CPU can handle at given period of time.</li>
+            <ul>
+              <li>8088 clock speed: 4.77 MHz or 4.77 million cycles per second.</li>
+              <li>1 hertzz (1 Hz) = 1 cycle per second</li>
+            </ul>
+          <li>System crystal: determine speed at which CPU and rest of PC operate.</li>
+            <ul>
+              <li>System crystal is quartz oscillator, similar to wristwatch, soldered to MOBO.</li>
+              <li>Quartz oscillator sends out electric pulse at certain speed (milliions per second).</li>
+            </ul>
+          <li>Clock chip</li>
+            <ul>
+              <li>Quartz oscillator's signal goes first to clock chip</li>
+              <li>Clock chip adjust the pulse (usually increase the pluse by multiplying).</li>
+            </ul>
+          <li>Overlock CPU</li>
+            <ul>
+              <li>telling clock chip to multiply pulse faster than CPU's design speed.</li>
+              <li></li>
+            </ul>
+        </ul>
+
+    </ol>
+
+    <hr><br>
+    <h3>RAM</h3>
+    <ol>
+      <li>RAM: made up of groups of semiconductor chips soldered onto small cards.(digital spreadsheet) </li>
+      <li>DRAM: Dynamic RAM needs both constant electrical charge and periodic refresh of circuits.</li>
+      <li>MCC: Memory Controller Chip</li>
+        <ul>
+          <li>Chip between CPU and RAM. </li>
+          <li>CPU tell which info from RAM it wants to MCC, MCC grab from RAM and put on EDB for CPU.</li>
+        </ul>
+      <li>Address Bus</li>
+        <ul>
+          <li>Communicate CPU with MCC for CPU to ask what it want MCC to do in RAM</li>
+          <li>8088 had 20 wires on address bus</li>
+            <ul>
+              <li>Total patterns for 20 wires</li>
+              <li>1 wire = only ON or OFF</li>
+              <li>2 wire = 4 combinations 00, 01, 10, 11</li>
+              <li>20 wire = 1,048,576 = 1MB-ish (technically 1MiB mebibyte)</li>
+              <li>32bit CPU address bus = 4GB of RAM</li>
+              <li>64bit CPU address bus = 16EB of RAM</li>
+            </ul>
+        </ul>
+
+    </ol>
+
+    <hr><br>
+    <h3>Modern CPU</h3>
+    <ol>
+      <li>ALU: arithmetic logic unit: man in the Box</li>
+      <li>3 Processes of CPU Production/li>
+          <ul>
+            <li>Developer creates ISA: industry standard architecture for CPU.</li>
+              <ul>
+                <li>ISA is the instruction set</li>
+                <li>Instruction set is how CPU will handle code and interact with other components.</li>
+              </ul>
+            <li>Developer designs chip floorplan, how all transistors and other physcial parts of CPU interconnect.</li>
+            <li>Facbrication company puts all designs into action and creates physical CPU according to architecture and design specifications.</li>
+          </ul>
+      <li>Intel</li>
+          <ul>
+            <li>x86-64 architecture processors</li>
+            <li>Design the chip</li>
+            <li>Handle Facbrication as well</li>
+          </ul>
+      <li>AMD</li>
+          <ul>
+            <li>x86-64 architecture processors</li>
+            <li>Design the chip</li>
+            <li>Fabless semiconductor company: rely  on another company to produce physical processor.</li>
+          </ul>
+      <li>ARM</li>
+          <ul>
+            <li>ARM: Advanced RISC Machine architecture processors.</li>
+            <li>ARM licenses its processors to other companies (Apple, Samsung, Qualcomm: who design the chip).</li>
+            <li>Apple,Samsung,Qualcomm: then use fabrication comapney (Foxconn) to make physical processors.</li>
+          </ul>
+      <li>Microarchitecture</li>    
+          <ul>
+            <li>Microarchitecture is when each company comes up with major new CPU design, every few year.</li>
+            <li>Throttling: saving energy by making CPU run more slowly when demand is light.</li>
+          </ul>
+      <li>TDP thermal design power</li>
+          <ul>
+            <li>TDP is how much heat CPU generates in figure (measured in watts).</li>
+            <li>Smartphone TDP: 2watts - 15 watts.</li>
+            <li>Laptop TDP: 7watts - 65watts</li>
+            <li>Desktop TDP: 50watts - 140watts</li>
+          </ul>
+    </ol>
+    <hr><br>
+    <h3>CPU Technology</h3>
+    <ol>
+      <li>Clock multipliers</li>
+        <ul>
+          <li>Modern CPU: run at some multiple of system clock speed (x15,x20,x30)</li>
+          <li>CPU was only thing doing any work much of time </li>
+          <li>CPU computing process speed up but nothing else.</li>
+          <li>MOBO sets the speed and multiplier automatically(manually overwrite by Overclocking CPU)</li>
+        </ul>
+      <li>64bit processing</li>
+        <ul>
+          <li>32bit processing = 4GB of RAM via address bus</li>
+          <li>64bit processing = 16EB of RAM via address bus</li>
+          <li>Primary benefit of 64bit computing = support more than 4GB of memory.</li>
+          <li>x86</li>
+            <ul>
+              <li>The term "x86" refers to a family of instruction set architectures based on the Intel 8086, not because it's a 32-bit architecture,</li>
+              <li>but because the names of its successors (80186, 80286, 80386, etc.) all ended in "86</li>
+            </ul>
+          <li>x64</li>
+          <li>x86-64</li>
+        </ul>
+      <li>Virtualization support</li>  
+        <ul>
+          <li>Virtualization support: support for more than one OS at a time.</li>
+          <li>Intel and AMD has built in featuere</li>
+        </ul>
+      <li>Parallel execution</li>
+        <ul>
+          <li>Parallel execution: CPU processing multiple commands and parts of commands in parallel.</li>
+          <li>Parallel execution processing stages</li>
+            <ul>
+              <li>Pipelining</li>
+                <ul>
+                  <li>CPU takes at least 4 steps/stages to get command from data bus,calculate, send back out on data bus.</li>
+                  <li>Fetch: Get data from EDB</li>
+                  <li>Decode: Figure out what type of command needs to be executed</li>
+                  <li>Execute: Perform calculation</li>
+                  <li>Write: send data back to EDB</li>
+                </ul>
+              <li>Pipeline: conveyer belt like fashion,keeps every stage of processor busy on every click of the clock</li>
+              <li>Cache: increased number of stages, up to 20 in some cases.</li>
+              <li>Pipeline stall: stage hits complex command that requires more than one clock cycle, force pipeline to stop.</li>
+            </ul>
+          <li>inside CPU</li>
+            <ul>
+              <li>CPU composed of multiple chunks of circuitry to handle types of calculations.</li>
+              <li>ALU: arithmetic logic unit (integer unit) handles integer math.</li>
+              <li>FPU: floating point uint handles complex numbers.</li>
+              <li>ALU and FPU operated at execution stage.</li>
+              <li>Pipeline stall happens with FPU. CPU offer multiple pipeline to avoid stall.</li>
+            </ul>
+          <li>Cache</li>
+            <ul>
+              <li>One click in browser: Windows send many programs (threads and data) to CPU.</li>
+              <li>Threads: these programs breaks down into some number of little pieces called threads.</li>
+              <li>Each thread is a series of instructions designed to do a particular job with the data</li>
+            </ul>
+        </ul>
+      <li>Multicore processing</li>
+      <li>IMC integrated memory controller</li>
+      <li>GPU graphics processing uint</li>
+      <li>Security</li>
+    </ol>
 
 
 
 
 
 
-
-
-.
 
 
 
