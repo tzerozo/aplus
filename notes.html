@@ -651,26 +651,155 @@
             </ul>
         </ul>
       <li>DDR SDRAM</li>
+        <ul>
+          <li>Double data rate SDRAM</li>
+            <ul>
+              <li>doubleing throughput of SDRAM by making two processes for every clock cycle.</li>
+              <li>DDR SDRAM for Desktop: 184pin</li>
+              <li>DDR SDRAM for Laptop: 172 micro-DIMM or 200 SO-DIMM</li>
+            </ul>
+          <li>Dual channel architecture</li>
+            <ul>
+              <li>Using two sticks of RAM together to increase throughput.</li>
+              <li>Must snap into two paried slots.</li>
+            </ul>
+          <li>DDR2</li>
+            <ul>
+              <li>DDR2 is faster than DDR</li>
+              <li>DDR2 is more power efficent than DDR</li>
+            </ul>
+        </ul>
     </ul>
   <li>DDR</li>
     <ul>
       <li>DDR3</li>
+        <ul>
+          <li>DDR3 is 30percent lower power consumption over DDR2</li>
+          <li>Reality size: 16GB</li>
+          <li>240pin DIMM</li>
+          <li>204pin SO-DIMM</li>
+          <li>XMP: Extreme Memory Profile: enables power users to overclock RAM easily.</li>
+          <li>AMD call it AMP: AMD Memory Profile.</li>
+          <li>Some motherboard of DDR3 support triple-channel or quad-channel memory architecture.</li>
+        </ul>
       <li>DDr4</li>
+        <ul>
+          <li>Theory size: DDR4 DIMMs 512GB. Reality size: 64GB</li>
+          <li>288pin DIMM</li>
+          <li>260pin SO-DIMM</li>
+          <li>Number of data transfer operations rate is moved from "bit rate" to megatransfer per second(MT/s).</li>
+        </ul>
       <li>DDR5</li>
+        <ul>
+          <li>PMIC power management integrated circuit is onboard circuit that manage power.</li>
+          <li>288pin DIMMs</li>
+          <li>262pin SO-DIMM</li>
+          <li>Relaity size: 256GB</li>
+          <li>Bandwidth: channel memory architecture clock speed (MHz) multiply by 8.</li>
+        </ul>
     </ul>
   <li>RAM variations</li>
     <ul>
       <li>Double sided DIMMs</li>
+        <ul>
+          <li>single-sided RAM</li>
+          <li>double-sided RAM</li>
+        </ul>
       <li>latency</li>
+        <ul>
+          <li>delay in RAM's response time is latency.</li>
+          <li>CL = clock cycle delay (17CL = memory delays 17 clcok cycles before delivering requested data.</li>
+        </ul>
+      <li>ECC</li>
+        <ul>
+          <li>Error correction code RAM: detects and corects any time a single bit is flipped, on the fly. But can't correct double bit error.</li>
+          <li>ECC pins</li>
+            <ul>
+              <li>240pin</li>
+              <li>200pin SO-DIMM</li>
+              <li>Classic ECC protect against bit-filps in transit, DDR5 ECC protect bit-flips in the chip.</li>
+            </ul>
+        </ul>
       <li>Registerd and Buffered Memory</li>
+        <ul>
+          <li>Registerd RAM or buffered RAM refers to small register act as buffer between DIMM and Memory controller.</li>
+          <li>MOBO will use buffered not unbuffered, not both.</li>
+          <li></li>
+        </ul>
     </ul>
   <li>Virtual Memory</li>
+    <ul>
+      <li>virtual memory: portion of hard drive, extension of system RAM.</li>
+      <li>OS uses part of available drive space to save page file or swap file.</li>
+      <li>pagefile.sys</li>
+      <li>Windows access page files frequently, hard drive access LED going crazy.</li>
+      <li>Disk thrashing is a process when Windows rushes to move programs between RAM and page file</li>
+    </ul>
   <li>The Right RAM</li>
+    <ul>
+      <li>choose RAM sticks that match in technology, capacity, speed, and CL (latency).</li>
+      <li>use the speed specified in Motherboard book.</li>
+      <li>mixing speed could cause system to lock up every few seconds/minutes or data corruption.</li>
+    </ul>
   <li>Installing RAM</li>
+  <ul>
+    <li>SPD: serial presence detect chip added to RAM.</li>
+    <li>SPD stores all info about DRAM: size, speed,ECC or non-EC, registerd or unregisterd,and others.</li>
+    <li>when PC boots, it quereis SPD chip so MCC nows how much RAM on stick, how fast, and other.</li>
+    <li></li>
+  </ul>
   <li>Troubleshooting RAM</li>
+  <ul>
+    <li>Memory errors: system lockups,general protection fautls,page faults, etc.</li>
+    <li>System lockups: when computer stops funcitioning.</li>
+    <li>Page faults: milder error that can be caused by memory but not RAM problems.</li>
+    <li>NMI:non-maskable interrupt: is an interruption  CPU cannot ignore.</li>
+    <li>NMI manifests as proprietary crash screen.</li>
+      <ul>
+        <li>Windows: BSoD</li>
+        <li>Mac: SPoD Spinning pinwheel of death</li>
+        <li>Linux:Kernel panic??</li>
+      </ul>
+    <li>Intertmittent memory errors</li>
+      <ul>
+        <li>dying power supply</li>
+        <li>electrical interference</li>
+        <li>buggy applications</li>
+        <li>buggy hardware</li>
+      </ul>
+    <li>Memory error or not??</li>
+      <ul>
+        <li>Memory error:  never have same memory address or not happen with same applications</li>
+        <li>Else where error: if Windows displays different memory locations error next time.</li>
+      </ul>
+    <li>RAM problem fixing</li>
+      <ul>
+        <li>First: RAM testing devices</li>
+        <li>Second: replace and pray</li>
+        <li>Third: run software based tester 
+          <ul>
+          <li>(Windows Memory Diagnostic Tool)</li>
+          <li>Memtest.org</li>
+        </ul>
+      </ul>
+  </ul>
 </ol>
 
+<hr><br>
 
+<h3>Firmware</h3>
+  <ol>
+    <li></li>
+    <li>ROM</li>
+    <li>UEFI</li>
+    <li>BIOS</li>
+    <li>CMOS</li>
+    <li>System Setup Utility</li>
+    <li>BIOS/UEFI Security Settings</li>
+    <li>Exiting and Saving BIOS/UEFI settings</li>
+    <li>POST</li>
+    <li>Care and Feeding of BIOS/UEFI</li>
+  </ol>
 
 
 
