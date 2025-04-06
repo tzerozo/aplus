@@ -1278,13 +1278,194 @@
 <ol>
   <li>Electricity</li>
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>voltage = pressure of electrons in the wire, measured in V volts.</li>
+      <li>current = number of electron moving pass certain point in wire, current = amperage, measured in A amps/amperes.</li>
+      <li>wattage = V * A</li>
+      <li>ohms = resistance to flow of elctrons.</li>
+      <li>conductor = types of matter that allow electrons to move easily</li>
+      <li>insulator = types of matter that inhibit electron movement</li>
+      <li>circuit breaker = heat sensitive or electromagnetically operated electrical switch reated for specified amps.</li>
+      <li>ground wire = provides path of least resistance for electrons to flow back to ground in case of accidental overflow.</li>
+      <li>fuse = has tiny filament designed to break if subjected to too much current.</li>
+      <li>DC: electrons flow in one direction around continuous circuit</li>
+      <li>AC: electrons flow alternates direction, back and forth, in a circuit</li>
+      <li>AC used by power compaines, DC used by electronic devices.</li>
     </ul>
 
   <li>PC Power</li>
+    <ul>
+      <li>VAC = volts of alternating current</li>
+      <li>PSU connector to AC outlet: IEC-320 connector with 3 holes.</li>
+        <ul>
+          <li>Hot: hot wire carries electrical voltage</li>
+          <li>Neutral: neutral wire carries no voltage but acts like water drain, completing circuit by returning electricity to local source (breaker panel)</li>
+          <li>Ground: ground wire makes it possible for excess electricity to return safely to the ground</li>
+        </ul>
+      <li>Testing AC power</li>
+        <ul>
+          <li>hot: outputs approx 115V in US</li>
+          <li>neutral: connects to ground ( 0 V output)</li>
+          <li>ground: connects to ground (0 V output)</li>
+        </ul>
+      <li>Multimeter aka VOM (volt-ohm meter) aka DMM (digital multimeter): emasure several aspects of electrical current.</li>
+      <li>Multimeter has 2 probes: analog or digital meter, and dial to set type of test.</li>
+      <li>Multimeter test:</li>
+        <ul>
+          <li>continuity: determines electrons can flow from one end of wire to other end.If yes, continuity is.</li>
+          <li>resistance: </li>
+          <li>AC voltage(VAC)</li>
+          <li>DC voltage(VDC)</li>
+        </ul>
+      <li>AC adapters</li>
+        <ul>
+          <li>Computing devices use AC adapter over internal power supply.</li>
+          <li>Black box with two cables: one to wall, one to device.</li>
+          <li>AC adapter: converts AC to DC, just like power supply.</li>
+          <li>3 things before plugging AC adapter to device</li>
+            <ul>
+              <li>voltage</li>
+              <li>amperage</li>
+              <li>polarity</li>
+            </ul>
+        </ul>
+      <li>Equipment Grounding</li>
+        <ul>
+          <li>computer equipment safety starts with proper grounding.</li>
+          <li>Ground wire: functions as an emergency outlet for excess current in case of any short or malfunction of a device.</li>
+          <li>Sag or brownout: voltage drop well below</li>
+          <li>Spike or power surge: voltage shot far above</li>
+          <li>Surge suppressor</li>
+            <ul>
+              <li>UL LCC 1449 for 330-V rating</li>
+              <li>Joule: unit of electrical energy. How much energy surge suppressor can handle before it fails, describe in joule.</li>
+              <li>minimum joule rating: 2000 joules</li>
+              <li>surge suppressor can't handle ultimate surge,lightning strike.</li>
+            </ul>
+          <li>UPS</li>
+            <ul>
+              <li>contains big battery that provides AC power</li>
+              <li>UPS measured in both volt-amps(VA) and watts </li>
+              <li>Watt: (true amount of power they supply in event of power outrage)</li>
+              <li>VA (volt-amps): amount of power UPS could provide if device took power from UPS in perfect way.</li>
+              <li>2 Types of UPS</li>
+                <ul>
+                  <li>Online: devices are constantly powered through UPS Battery</li>
+                  <li>Standby: devices are connected to UPS only when AC sags belwo 80-90V.</li>
+                  <li>Line-interactive, similar to standby: handle moderate AC sags and surge without need to switch battery power.</li>
+                </ul>
+            </ul>
+        </ul>
+      <li>DC power</li>
+        <ul>
+          <li>Power Supply Unit</li>
+            <ul>
+              <li>12V: power motors on devices such hard drive, optical drive</li>
+              <li>5V: otehr onboard electronics</li>
+              <li>3.3V: other onboard electronics</li>
+            </ul>
+          <li>Motherboard Power Connector</li>
+            <ul>
+              <li>20in</li>
+              <li>24pin</li>
+            </ul>
+          <li>Molex connector</li>
+            <ul>
+              <li>5V and 12V: fans and older drives.</li>
+              <li>Chamfers aka notches: to guide installation.</li>
+            </ul>
+          <li>Mini Connector</li>
+            <ul>
+              <li>few PSU still support mini connector or Berg connector</li>
+              <li>5V and 12V to peripherals</li>
+              <li>originally use for 3.5 floppy disk drive connector.</li>
+            </ul>
+          <li>SATA connector</li>
+            <ul>
+              <li>SATA drive: needs 15pin SATA power connector, L shaped.</li>
+              <li>3.3V pins are not used in any current iteration of SATA drives and reserved for possible future use.</li>
+            </ul>
+          <li>ATX</li>
+            <ul>
+              <li>Original ATX power supply's physical feature:</li>
+                <ul>
+                  <li>motherboard power connector: 20pin P1 conector</li>
+                  <li>soft power</li>
+                </ul>
+              <li>ATX power supply cables</li>
+                <ul>
+                  <li>minimum 2 cable: each populated with 2 or more Molex or mini connectors for peripheral power.</li>
+                </ul>
+              <li>ATX run 5V to motherboard, always "on", even powered down.</li>
+              <li>PC power switch, tells computer it is pressed. BIOS or OS takes over. its call "soft power".</li>
+              <li>Benefits of soft power</li>
+                <ul>
+                  <li>prevent user from turning off PC before OS shut down.</li>
+                  <li>enables PC to use power saving mode (sleep) and wake up</li>
+                </ul>
+              <li>Soft power settings</li>
+                <ul>
+                  <li>Soft power settings inside CMOS setup.</li>
+                  <li>BIOS/CMOS utility - Power management - Power button function - Delay 4 seconds.</li>
+                </ul>
+            </ul>
+          <li>ATX12V 1.3</li>
+            <ul>
+              <li>introduced: 4pin motherboard power connector, P4 power connector, provides 12V</li>
+              <li>Any power supply with P4 connector is called "ATX12V"</li>
+              <li>introduced: 6pin auxiliary connector: AUX connector, supply 3.3 and 5V.</li>
+              <li>AMD mobo needs AUX, Intel mobo needs P4.</li>
+            </ul>
+          <li>EPS12V</li>
+            <ul>
+              <li>SSI: server system infrastructure, non-ATX mobo, power supply EPS12V</li>
+              <li>24pin mobo power connector: more current than 20pin.</li>
+              <li>EPS12V comes with AUX connector, ATX12V P4 connector, and unique 8piin connector.</li>
+              <li>Rails</li>
+                <ul>
+                  <li>DC voltage rails: 3.3V , 5V, 12V</li>
+                  <li>12V rails supplies 18amps. not enough for powerful computer. include multiple 12V rails in PSU was solution</li>
+                  <li>OCP: over-current protection- will shut down power supply if currnt goes beyond its cap.</li>
+                  <li>single-rail system: single OCP circuit monitors all the pathways</li>
+                  <li>multi-rrail system: each pathway gets its own OCP circuit.</li>
+                  <li>Today: 12V rails pushing 70amps or more.</li>
+                </ul>
+            </ul>
+          <li>ATX12V 2.0</li>
+            <ul>
+              <li>incorporate EPS12V's 24pin connector.</li>
+              <li>requries 12V rails for PSU rated higher than 230W.</li>
+              <li>drops: AuX connector, adopts: SATA hard drive connector</li>
+              <li>8pin CPU power connector: EPS12V, EATX12V, ATX12V 2x4.</li>
+              <li>PCIe power connector: 6pin or 8pin</li>
+            </ul>
+          <li></li>
+        </ul>
+      <li>Other Power Supply Form Factor</li>
+        <ul>
+          <li>mini-ITX and microATX: smaller PSU for those cases</li>
+          <li>TFX12V: low profile ATX system</li>
+          <li>SFX12V: FlexATX motherboard</li>
+        </ul>
+      <li>Active PFC</li>
+        <ul>
+          <li>active PFC: power factor correction, extra circuitry that smooths out power coming from wall before passing to main power suplly circuits</li>
+          <li>active PFC eliminates any harmonics: which create humming sound.</li>
+          <li>Wattage requirement</li>
+            <ul>
+              <li>wattage rating: amount of energy converted from power outlet to computer's internal power components.</li>
+              <li>AC to DC convertion: no PSU can't convert 100%, lost in heat generation.</li>
+              <li>ATX12V 2.0 requires minimum 70% efficiency.</li>
+            </ul>
+          <li>Power Supply Grading</li>
+            <ul>
+              <li>Graded for efficiency under voluntary standard program: called 80plus.</li>
+              <li>Bronze: 80 percent</li>
+              <li>Gold: 90 percent</li>
+              <li>Titanium: 94 percent</li>
+              <li>Efficiency means PSU waste less power, save money.</li>
+            </ul>
+        </ul>
+    </ul>
 
 
   <li>Insatlling Power Supplies</li>
@@ -1343,19 +1524,30 @@
         </ul>
     </ul>
 
-
-
-
-
 </ol>
 
 
 
   <hr><br>
   ----------------------------------------------------------------
+<h3>Mass Storage</h3>
+  <ol>
+    <li>Hard Drives</li>
+      <ul>
+        <li>Spindle speed</li>
+        <li>Form Factors</li>
+          <ul>
+            <li>2.5 inch</li>
+            <li>3.5 inch</li>
+          </ul>
+      </ul>
+    <li>Solid State Drives</li>
+    <li></li>
+    <li></li>
 
 
 
+  </ol>
 
 
 
