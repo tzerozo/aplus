@@ -302,8 +302,10 @@
             </ul>
           <li>System crystal: determine speed at which CPU and rest of PC operate.</li>
             <ul>
-              <li>System crystal is quartz oscillator, similar to wristwatch, soldered to MOBO.</li>
+              <li>System crystal is quartz oscillator, similar to wristwatch, soldered to MOBO. it sets the speed.</li>
               <li>Quartz oscillator sends out electric pulse at certain speed (milliions per second).</li>
+              <li>Every device soldered to motherboard is designed to run at speed of system crystal.</li>
+              <li>200MHz motherboard's chipset all timed by 200MHz crystal.</li>
             </ul>
           <li>Clock chip</li>
             <ul>
@@ -1052,29 +1054,300 @@
 <h3>Motherboards</h3>
   <ol>
     <li>How Motherboards work</li>
+      <ul>
+        <li>MOBO are layered PCB: printed circuit boards. 4 or more layers thick.</li>
+        <li></li>
+        <li></li>
+      </ul>
+    <li>Motherboard Characteristics</li>
+      <ul>
+        <li>Form Factor</li>
+          <ul>
+            <li>Form factor: physical size, general locations of components and ports.</li>
+          </ul>
+        <li>Chipset</li>
+          <ul>
+            <li>Defines type of processor and RAM that mobo support, including expansion slots.</li>
+          </ul>
+        <li>Components</li>
+          <ul>
+            <li>Built-in components: determine core functionality of system.</li>
+          </ul>
+      </ul>
+    <li>Form Factor</li>
+      <ul>
+        <li>Defines industry standardized shapes and layouts of Motherboard.</li>
+        <li>form factor: applies to case, motherboard, and power supply.</li>
+        <li>form factor: defines how the air moves around in the case.</li>
+        <li>AT</li>
+          <ul>
+            <li>Advanced Technology:invented by IBM in 1980. </li>
+            <li>sizes: 12 x 13</li>
+            <li>only dedicated connector on AT: keyboard port.</li>
+          </ul>
+        <li>ATX</li>
+          <ul>
+            <li>1995, rear port panel, mini-DIN for keyboard and mouse.</li>
+            <li>3 variations of ATX</li>
+              <ul>
+                <li>Full ATX: 12 x 9.6</li>
+                <li>microATX: 9.6 x 9.6</li>
+                <li>mini-ITX: 6.7 x 6.7</li>
+              </ul>
+          </ul>
+        <li>ITX</li>
+          <ul>
+            <li>SFF: small form factor motherboard,by VIA technologies.</li>
+            <li>ITX: Infromation Technology eXtended.</li>
+            <li>mini-ITX</li>
+          </ul>
+        <li>Proprietary Form factors</li>
+          <ul>
+            <li>Several major PC makers make motherboard for their own case.</li>
+            <li>riser cards aka daughter boards</li>
+          </ul>
+      </ul>
+
+    <li>Chipset</li>
+      <ul>
+        <li>Chipset determines: </li>
+          <ul>
+            <li>type of processor: Intel or AMD</li>
+            <li>type and capacity of RAM: DDR4, DDR5, 64GB, 128GB</li>
+            <li>internal and external devices: version of USB ports, video support, integrated network connections.</li>
+          </ul>
+        <li>Two chips architecture</li>
+          <ul>
+            <li>northbridge: handle RAM</li>
+            <li>southbridge: handled expansion devices and mass storage devices.</li>
+            <li>some MOBO will have Super I/O chip: handle legacy devices.</li>
+          </ul>
+        <li>Modren chipset</li>
+          <ul>
+            <li>CPU handle northbridge's memory controller feature.</li>
+            <li>CPU handle southbridge's primary expansion bus Communication.</li>
+            <li>System ROM chip: provides part of BIOS for chipset at bare minimum level.</li>
+            <li>Chipset still needs support for the rest of the things it can and suppose to do.</li>
+            <li>Software drivers: support features of chipsets.</li>
+          </ul>
+      </ul>
+
+    <li>Components</li>
+      <ul>
+        <li>USB: headers/internal connectors: to plug in header cables for additional external ports.</li>
+        <li>Sound: audio jacks</li>
+        <li>Networking: RJ-45 jack</li>
+        <li>Video: VGA, HDMI, Display Port</li>
+        <li>Case Fan: CPU fan 4 wire power connector</li>
+        <li>RAID: </li>
+      </ul>
+    <li>Expansion Bus</li>
+      <ul>
+        <li>Every chip,including expansion card's chip, needs CLK wire and nees to be pushed by clock chip.</li>
+        <li>Expansion bus crystal: added to PC, for external data bus to run at its own standardized sppe for expansion devices.</li>
+        <li>PCI</li>
+          <ul>
+            <li>Peripheral component interconnect: 1900 by Intel.</li>
+            <li>original PCI bus: 32bits wide, 33MHz</li>
+            <li>PnP: plug and play</li>
+            <li>PCI had powerful burst mode feature: enable very efficient data transfer</li>
+          </ul>
+        <li>PCIe</li>
+          <ul>
+            <li>PCIe use: point to point serial connection, instead of PCI's shared parallel communication.</li>
+            <li>One wire for sending. One wire for receiving.</li>
+            <li>Lane: pair of wires (sending and receiving) between PCIe controller and device.</li>
+            <li>PCIe transfer speed</li>
+              <ul>
+                <li>PCIe 1.x = 2.5GTps</li>
+                <li>PCIe 2.x = 5GTps</li>
+                <li>PCIe 3.x = 8GTps</li>
+                <li>PCIe 4.x = 16GTps</li>
+              </ul>
+            <li>PCIe Lane</li>
+              <ul>
+                <li>1 lane</li>
+                <li>2 lanes</li>
+                <li>4 lanes</li>
+                <li>8 lanes</li>
+                <li>12 lanes</li>
+                <li>16 lanes</li>
+              </ul>
+          </ul>
+      </ul>
+    <li>Installing Expansion Cards</li>
+      <ol>
+        <li>Step1: Knowledge</li>
+          <ul>
+            <li>now the card works with motherboad and OS</li>
+            <li>old device or unique device on Linux can be tricky</li>
+          </ul>
+        <li>Step2: Physical installation</li>
+          <ul>
+            <li>insert properly without damage</li>
+            <li>always unplug PC before inserting an expansion card</li>
+          </ul>
+        <li>Device drivers</li>
+          <ul>
+            <li>proper drivers for specific OS</li>
+            <li>all devices requires BIOS.</li>
+            <li>All expansion cards, BIOS comes as "device drivers" aka "software supported programs".</li>
+            <li>Device or Driver first?</li>
+              <ul>
+                <li>Should install device driver only after device installed.</li>
+                <li>USB devices- should install driver first.</li>
+              </ul>
+            <li>Windows Hardware Compatibility Program</li>
+              <ul>
+                <li>Microsoft provide excellent and rigorous testing program for hardware manufacturers, WHCP.</li>
+                <li>WHCP confirm that Microsoft tested drivers and give digital signature to say all is well.</li>
+                <li>Unsigned driver: drivers that haven't goen through WHCP.</li>
+              </ul>
+          </ul>
+        <li>Verification</li>
+          <ul>
+            <li>verify card functions properly </li>
+            <li>After installing device -Open device manager - verify Windows see the device</li>
+          </ul>
+      </ol>
+    <li>Troubleshooting expansion cards</li>
+      <ul>
+        <li>Device manager: provides first diagnostic and Troubleshooting tools in Windows.</li>
+        <li>Run "add hardware wizard" to see Windows recognize device, "hdwwiz.exe"</li>
+        <li>Device manager:</li>
+          <ul>
+            <li> "Black !" means device is missing, Windows doesn't recognize device, driver problem.May still work.</li>
+            <li>"Black down arrow" means disabled, manually turn off or damaged. Will not work.</li>
+          </ul>
+      </ul>
+
     <li>Installing MOBO</li>
+      <ul>
+        <li>Choose motherboard: Intel or AMD</li>
+        <li>Choose form factor: ATX, microATX - which decides "case size"</li>
+        <li>Case: slimline, desktop, mini tower, mid tower, full tower, cube</li>
+      </ul>
     <li>Troubleshooting MOBO</li>
+      <ul>
+        <li>symptons</li>
+          <ul>
+            <li>1.Catastrophic failure</li>
+              <ul>
+                <li>computer just won't boot.</li>
+                <li>Loud noise and smell = dead computer. (popped capacitor or mobo component)</li>
+                <li>check power and hard drive acitivity "indicator light"</li>
+                <li>burn-in failure: manufacturing defects, shock of ESD.</li>
+              </ul>
+            <li>2.Component failure</li>
+              <ul>
+                <li>rare: appears as flaky connectinos between device and motherboard, or as intermittent problems.</li>
+                <li>hard drive plugged to faulty controoler on mobo: show in CMOS autodetect but inaccessible in Windows.</li>
+                <li>USB port: used to work,storm took out electricity , no longer work.</li>
+              </ul>
+            <li>Etheral failure</li>
+              <ul>
+                <li>stuff that just doens't work all the time.</li>
+                <li>PC reboots itself, BSoD, etc.</li>
+                <li>Causes:</li>
+                  <ul>
+                    <li>faulty component</li>
+                    <li>buggy device driver</li>
+                    <li>buggy software</li>
+                    <li>slight corruption of OS</li>
+                    <li>power supply problem</li>
+                  </ul>
+              </ul>
+          </ul>
+        <li>Techniques</li>
+          <ul>
+            <li>isolate problem by eliminating potential causes.</li>
+            <li>Check, replace, verify good component, and document.</li>
+          </ul>
+        <li>Options</li>
+          <ul>
+            <li>Catastrophic: replace motherboad</li>
+            <li>Component: replace component with add-on card, upgrade BIOS.</li>
+            <li>Ethereal: flash BIOS, replace MOBO.</li>
+          </ul>
+      </ul>
   </ol>
-
-
-
-
-
-
-
 
   <hr><br>
   ----------------------------------------------------------------
+<h3>Power Supplies</h3>
+<ol>
+  <li>Electricity</li>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+  <li>PC Power</li>
+
+
+  <li>Insatlling Power Supplies</li>
+    <ul>
+      <li>ATX PSU never turns off, continue to supply 5V, until unplug.</li>
+      <li>If no power button for PSU(not in motherboard yet or no case), use key or screwdriver to contact two wires to start aand stop system on mobo.</li>
+      <li>Cooling: power supply fan, case fan: Molex or three-pronged connector.</li>
+      <li>Warm air always rise above cold air.</li>
+      <li>Intake fan: located near bottom of front bezel of case, draw cool air in from outside.</li>
+      <li>Exhaust fan:located near top and rear of case(near PSU),takes warm air from inside and send it outside.</li>
+    </ul>
+  <li>Fan size</li>
+    <ul>
+      <li>80mm,92mm, 120mm, 140mm</li>
+      <li>Modern PC support 3 fans through three 3-pin fan connectors on motherboad</li>
+      <li>CPU fan use one of the connector.</li>
+    </ul>
+
+
+  <li>Troubleshooting Power Supplies</li>
+    <ul>
+      <li>PSU dies two way: sudden and slow. </li>
+      <li>Sudden death, check conenction, use multimeter to check voltage(voltage can vary  10%)</li>
+      <li>No Motherboard</li>
+        <ul>
+          <li>Power supplies wont start unless they are connected to motherboard.</li>
+          <li>If you have no motherboard, use ATX power supply tester.</li>
+        </ul>
+      <li>Power supplies die slowly</li>
+        <ul>
+          <li>one of internal electronics of power supply began to fail.</li>
+          <li>it will be intermitten failure: intermittent failure = power supply is bad.</li>
+          <li>e.g. it boos then lockup.boot-got error code-boot again-fine.</li>
+        </ul>
+      <li>Fuses and fire</li>
+        <ul>
+          <li>fire extinguishers classes:</li>
+            <ol>
+              <li>Class A: ordinary free burning combustible: wood, paper</li>
+              <li>Class B: flammable liquies: gasoline, solvents, paint</li>
+              <li>Class C: live electrical equipment</li>
+              <li>Class D: combustible metals: titanium, magnesium</li>
+              <li>Class E: cooking oils, trans-fats</li>
+            </ol>
+          <li>multiclass extinguisher: ABC</li>
+        </ul>
+      <li>Redundant power supplies</li>
+        <ul>
+          <li>load balancing: both PSU in use and electrical load is between them.</li>
+          <li>RPS: two idential RPS power supply are used in server</li>
+        </ul>
+      <li>Modular power supplies</li>
+        <ul>
+          <li>Good: remove extra cables, expand air flow</li>
+          <li>Bad: hurt efficienty because modular connectors add resistance to the lines.</li>
+        </ul>
+    </ul>
 
 
 
 
 
-
-
-
-
-
+</ol>
 
 
 
