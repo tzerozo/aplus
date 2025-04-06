@@ -789,21 +789,272 @@
 ----------------------------------------------------------------
 <h3>Firmware</h3>
   <ol>
-    <li></li>
+    <li>Talks</li>
+      <ul>
+        <li>Peripherals (kb,mouse) communicate with CPU via physical connection + controller</li>
+        <li>Controller is a chip that connects Peripherals device to CPU, act as an interface.</li>
+        <li>Early motherboard packed with controller chips (memory,keyboard, hard drive,other)</li>
+        <li>Chipsets= combine multiple controller chips.</li>
+        <li>Intel 430VX chipset = northbridge and southbridge</li>
+        <li>Today, controller chips built into CPU (memory controller and dislpay  controller)</li>
+        <li>PCH: platform controller hub, named by Intel. AMD and the rest still call it "chipset", even though it is a single chip, not a set.</li>
+        <li>Chipset extends "data bus" to every device (kb,speaker, network, printer, usb) on PC.</li>
+      </ul>
+    <li>Talking to Keyboard</li>
+      <ul>
+        <li>Device driver aka codebook: sit on PC's mass storage, loaded into memory as OS starts.</li>
+        <li>OS stores hunderes of device drivers and loads on boot.</li>
+        <li>Without device driver, OS can't run that specific controller (keyboard, mouse, network).</li>
+      </ul>
+
     <li>ROM</li>
+      <ul>
+        <li>ROM: device derviers berfore the device drivers.</li>
+        <li>ROM nonvolatile and read-only.</li>
+        <li>flash ROM is the one PC motherboard uses.</li>
+        <li>flash ROM + firmware + UEFI</li>
+      </ul>
+
     <li>UEFI</li>
+      <ul>
+        <li>UEFI is a firmware programming standard that defines how we configure utilities thae every system needs:</li>
+          <ul>
+            <li>device drivers</li>
+            <li>boot support</li>
+            <li>system setup</li>
+          </ul>
+        <li>UEFI providse the programming thate enables CPU to communicate with other hardware.</li>
+        <li>Correct term for UEFI "device drivers" is services.</li>
+      </ul>
     <li>BIOS</li>
+      <ul>
+        <li>BIOS designed to on Intel 8088, replaced by UEFI.</li>
+        <li>Basic input output system</li>
+      </ul>
     <li>CMOS</li>
+      <ul>
+        <li>every UEFI needs a tiny bit of writable memory,and flash ROM is read-only.</li>
+        <li>Why UEFI needs writable memory?</li>
+          <ul>
+            <li>if you want boot-up password, where do you tell UEFI to store that password</li>
+            <li>how will UEFI know how much RAM it needs?</li>
+          </ul>
+        <li>Writable memory = tiny bit of speciaized RAM attached to small battery to keep it working when PC is off and unplugged.</li>
+        <li>The memory is call CMOS: complementary metal-oxide semiconductor.</li>
+        <li>CMOS used to be its own chip. Today it is built into "chipset".</li>
+        <li>Information about a hardware (mouse) in CMOS have to match the actual hardware specs.If not,computer won't access the hardware.</li>
+        <li>Why you need to cahnge/update CMOS data is crucial? Read line above.</li>
+      </ul>
     <li>System Setup Utility</li>
+      <ul>
+        <li>How can you access and modify CMOS data?</li>
+        <li>System Setup Utility: comes with UEFI let you modify CMOS data.</li>
+        <li>System Setup Utility = CMOS = sysstem setup = BIOS setup utility = UEFI setup utility = BIOS settings = UEFI firmware setting</li>
+        <li></li> 
+      </ul>
+    <li>Access to BIOS/UEFI</li>
+      <ul>
+        <li>Delete OR F2</li>
+        <li>Microsoft Surface Tablet: Press and hold Vol.Up and at same time, Press and release Power button.</li>
+      </ul>
+    <li>UEFI Features</li>
+      <ul>
+        <li>Admin password</li>
+          <ul>
+            <li>Admin password: lock/unlock access to system setup utility itself.</li>
+            
+          </ul>
+        <li>User password</li>
+          <ul>
+            <li>User password: lock/unlock the computer botting to OS.</li>
+          </ul>
+        <li>Overclocking CUP: Change clock multiplier, clock speeds, voltages, etc</li>
+        <li>Enable and disable devices (optical, USB, STA, HDD, etc)</li>
+        <li>Boot sequence/priority, boot configuration, secure boot</li>
+        <li>Secure Boot: UEFI protocol that securs boot process by requiring properly signed software.</li>
+        <li>Enable and disable virtualization support for VM.</li>
+          <ul>
+            <li>virtualization support feature: hardware-assisted virtualization</li>
+            <li>Intel: IVT Intel Virtualization Technology</li>
+            <li>AMD: AMD-V AMD Virtualization</li>
+            <li>GPU options: integrated or dedicated/discrete</li>
+          </ul>
+        <li></li>
+      </ul>
+
+
     <li>BIOS/UEFI Security Settings</li>
+      <ul>
+        <li>Boot options</li>
+          <ul>
+            <li>2 hard drives: which drdive to boot the system from?</li>
+            <li>how to boot from anti-virus USB drive instead of cased-hdd?</li>
+          </ul>
+        <li>USB permissions</li>
+          <ul>
+            <li>Enable USB boot is fun but bad guy can get in easily.</li>
+            <li>Leaving all USB port enable is high risk</li>
+            <li>Law enforcement and such environment will turn off USB ports.</li>
+          </ul>
+        <li>Fan</li>
+          <ul>
+            <li>Monitor fans and control system fans</li>
+            
+          </ul>
+        <li>TPM Trusted Platform Module</li>
+          <ul>
+            <li>TPM acts as a secure cryptoprocessor.</li>
+            <li>cryptoprocessor = hardware platform for acceleration of cryptographic functions and secure storage of associated information.</li>
+            <li>TPM is a storage place for very secure keys used by all kinds of software on your PC.</li>
+            <li>Trusted Computing Group publish TPM specifications</li>
+            <li>TCG includes Intel, AMD, IBM, Microsoft, Dell, Lenovo, HP, and others.</li>
+            <li>TPM = small circuit board plugged to MOBO or built-into chipset.</li>
+            <li>TPM usage: in various cryptographic operations </li>
+            <li>Mostly used for "hard disk encryption". Windows BitLocker Drive Encryption feature.</li>
+            <li>Other usage: DRM digital rights management, netework access control, password protection, apllication execution control.</li>
+          </ul>
+        <li>Secure Boot</li>  
+          <ul>
+            <li>Secure Boot includs boot software and software that supports specific, essential components.</li>
+            <li>Secure boot requires intel CPU, UEFI BIOS, and OS designed for it (Windows).</li>
+            <li>Secure Boot to respond to security of boot-up area by making sure device only loads firmware/software trusted by OEM.</li>
+            <li>Trusted software can be achived by "signing the code using digital signature"</li>
+            <li>System runs signature check of each piece of boot software and UEFI drivers, it checks core OS files too.</li>
+          </ul>
+        
+      </ul>
     <li>Exiting and Saving BIOS/UEFI settings</li>
+      <ul>
+        <li>Preset/profiles: to save customized settings.</li>
+        <li>Save changes, discard changes, exit saving changes, exit discarding changes</li>
+      </ul>
     <li>POST</li>
+      <ul>
+        <li>system ROM has BIOS but its not the only program.</li>
+        <li>When computer "turn on OR reset", it initiates special program: POST.</li>
+        <li>POST check the system every time the computer boots by sending command to all devices "Check yourself"</li>
+        <li>All devices on system will run built in diagnostic</li>
+        <li>How POST work?</li> 
+          <ul>
+            <li>POST convey POST info to user either via "beep codes or text messages"</li>
+            <li>Before and during video test: beep code</li>
+              <ul>
+                <li>beep code varies by BIOS manufacturers. Comptia term: POST code</li>
+                <li>modern PC beep code</li>
+                  <ul>
+                    <li>Bad or missing video: One Long Beep followed by Two or Three short beeps.</li>
+                    <li>Bad or missing RAM: Single beep that repeats indefinitely.</li>
+                  </ul>
+                <li>Other 3 beep sequences</li>
+                  <ul>
+                    <li>One or Two short beep: end of successful POST indicates all is well.</li>
+                    <li>srange noise that repeats: RAM is missing or damaged.</li>
+                    <li>beep that aren't related to POST or booting: series of short beeps after running PC for awhile.</li>
+                  </ul>
+              </ul>
+            <li>Text Errors</li>
+              <ul>
+                <li>e.g. "Keyboard failure"</li>
+                <li>Inoperative device can disrupt POST and force PC into endless loop. Get POST card.</li>
+                <li>POST card: montor POST and identify which hardware is causing the trouble.</li>
+              </ul>
+          </ul>
+          <li>Boot Process</li>
+          <ul>
+            <li>Power PC</li>
+            <li>Power supply circuitry tests for proper voltage and sends signal down on special wire called "power good wire" to awake CPU.</li>
+            <li>CPU immediatly sends built-in memory address via address bus.</li>
+            <li>CPU's built-in memory address is "first line of POST program on system's ROM". and POST starts.</li>
+            <li>After POST,computer need to find programs on hard drive to start OS.</li>
+              <ul>
+                <li>BIOS</li>
+                  <ul>
+                    <li>POST passes control to the last BIOS function: bootstrap loader.</li>
+                    <li>Bootstrap loader: lines of BIOS code tacked to the end of POST program, its job is to find OS.</li>
+                    <li>Bootstrap loader reads CMOS information for finding OS. (System Setup Utility - Boot Sequence)</li>
+                    <li>Boot sector: specific location on storage drives, are configured to boot OS.</li>
+                    <li>Bootable device's boot sector contains "special programming" designed to tell system where to locate OS.</li>
+                    <li>Boootable disk or system disk: any device with functional OS.</li>
+                    <li>Bootstrap loader -locate- good boot sector: pass control to OS and removes itself from memory.</li>
+                    <li>Bootstrap loader - can't locate good boot sector: go to next boot device in boot sequence.</li>
+                  </ul>
+                <li>UEFI</li>
+                  <ul>
+                    <li>POST passes control of boot process to "Boot manager".</li>
+                    <li>Boot manager: checks "boot configuration" and loads "OS boot loader" directly.</li>
+                    <li>Boot manager no longer need to scan boot sector or anything.</li>
+                    <li>UEFI firmware stores "boot manager" and "boot configuration"</li>
+                  </ul>
+                <li>PXE</li>
+                  <ul>
+                    <li>PXE: preboot execution environment, BIOS feature, enables to boot without any local storage (OS from server over network.)</li>
+                    <li>Installing Windows options</li>
+                  </ul>
+              </ul>
+
+          </ul>
+      </ul>
     <li>Care and Feeding of BIOS/UEFI</li>
+      <ul>
+        <li>Default and Optimized Settings</li>
+          <ul>
+            <li>Reset options: Load default settings OR OS optimized defautls.</li>
+            <li>Optimized: sets system to best possible speed or stability for system.</li>
+          </ul>
+        <li>Clearing CMOS</li>
+          <ul>
+            <li>When you mess up a setting (overclocking) that cause computer dead: reset CMOS to factory defaults and start over.</li>
+            <li>CLRTC: dedicated set of wires on MOBO.</li>
+            <li>Turn off PC. Unplug power.</li>
+            <li>Move SHUNT(plastic and metal jumper): from "wires 1 and 2" to "wires 2 and 3"</li>
+            <li>Wait 10 seconds, move SHUNT back to default position.</li>
+            <li>Plug and boot PC.</li>
+            <li>if not working, after unplug - remove CMOS battery - reinstall battery and reboot.</li>
+            <li>Today: MOBO may have "dedicated clear CMOS button" hardwired to MOBO.</li>
+          </ul>
+        <li>Losing CMOS RTC Settings</li>
+          <ul>
+            <li>CMOS RAM: needs continuous trickle charge to keep internal clock running and remember settings.</li>
+            <li>CMOS battery: CR2032: give CMOS RAM the charge its needs when PC is off.</li>
+            <li>CMOS information lost Errors symptons</li>
+              <ul>
+                <li>CMOS configuration mismatch</li>
+                <li>CMOS date and teim not set</li>
+                <li>BIOS time and settings Reset</li>
+                <li>No boot device available</li>
+                <li>CMOS battery state low</li>
+                <li>Windows clock reste to January 1st everytime you boot</li>
+                <li>Pulling and inserting cards</li>
+                <li>Touching MOBO</li>
+                <li>Dropping things on MOBO</li>
+                <li>Dirt on MOBO</li>
+                <li>Faulty power supplies</li>
+                <li>Eletrical surges</li>
+              </ul>
+            <li>Above symptons require: Battery replacement.</li>
+            <li>5V soft power on MOBO can provide electricity to keep CMOS charged and secure data while changing CMOS battery.</li>
+          </ul>
+        <li>Flashing ROM</li>
+          <ul>
+            <li>Reprogram "flash ROM" to update contents inside.</li>
+            <li>Why falsh ROM or update BIOS? to support new technology (support larger drive, support faster RAM, security)</li>
+            <li>Firmware update aka flashing ROM</li>
+              <ul>
+                <li>Run small command line program, combined with update file.</li>
+              </ul>
+            <li></li>
+          </ul>
+      </ul>
   </ol>
 
 <hr><br>
   ----------------------------------------------------------------
-
+<h3>Motherboards</h3>
+  <ol>
+    <li>How Motherboards work</li>
+    <li>Installing MOBO</li>
+    <li>Troubleshooting MOBO</li>
+  </ol>
 
 
 
