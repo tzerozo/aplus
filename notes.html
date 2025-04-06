@@ -1534,7 +1534,15 @@
   <ol>
     <li>Hard Drives</li>
       <ul>
+        <li>HDD: individual disks/platters, read/write heads on actuator arms, controlled by servo motor</li>
+        <li>Each read/write head has bit-sized "transducer" to read/write to each spot on the hard drive.</li>
         <li>Spindle speed</li>
+          <ul>
+            <li>HDD rotate at a set spindle/rotational speed.</li>
+            <li>Spinning platters measured in RPM (revolutions per minute)</li>
+            <li>5400RPM, 7200RPM,10000RPM,15000RPM</li>
+            <li>5 degrees of Celsisu may reduce 2 years of HDD life.</li>
+          </ul>
         <li>Form Factors</li>
           <ul>
             <li>2.5 inch</li>
@@ -1542,8 +1550,139 @@
           </ul>
       </ul>
     <li>Solid State Drives</li>
-    <li></li>
-    <li></li>
+      <ul>
+        <li>SSD = combination of semiconductors and transistors,aka use flash memory chips to store data</li>
+        <li>SSD form factors</li>
+          <ul>
+            <li>2.5inch </li>
+            <li>mSATA</li>
+              <ul>
+                <li>replaced by M.2</li>
+                <li>M.2 is half the size with better performance</li>
+              </ul>
+            <li>M.2</li>
+              <ul>
+                <li>M.2 sizes: four-digits or five-digits number. 2242, 2260, 2280, 22110</li>
+                <li>00 = width in millimeters, 00 or 000 = lenght</li>
+                <li>2280 = 22mm wide by 80mm long.</li>
+              </ul>
+          </ul>
+        <li>MLC: multi level cell memory technology SSD, less reliable, less expensive</li>
+        <li>SLC: single level cell memory tehcnology SSD, more reliable, more expensive</li>
+        <li>3D NAND: form of MLC, stacks cells vertically, provide increased density and capacity.</li>
+      </ul>
+    <li>SSD performace metrics</li>
+      <ul>
+        <li>How fast it can read or write long sequence of data stored in same part of drive</li>
+        <li>How fast it can read or write small chunks of data scatterd randomly around the drive</li>
+        <li>How quickly it responds to single request.</li>
+      </ul>
+    <li>Sequential read/write performance</li>
+      <ul>
+        <li>throughput = storage device's top speed, rates it can read/write long sequence of data.</li>
+        <li>throughput == megabytes per second (MBps)</li>
+          <ul>
+            <li>HDD: 200MBps</li>
+            <li>SATA SSD: 600MBps</li>
+            <li>NVMe SSD: 2500MBps</li>
+          </ul>
+      </ul>
+    <li>random read/write perofromance</li>
+      <ul>
+        <li>how many times per second a device can read or write small data at random locations.</li>
+        <li>data chunk 4KB: 4K rad, 4K random write, 4K mixed.</li>
+        <li>IOPS: input/output operations per second or MBps.</li>
+          <ul>
+            <li>HDD: 150 IOPS</li>
+            <li>NVMe SSD: hundreds of thousands of IOPS</li>
+          </ul>
+      </ul>
+    <li>Latency</li>
+      <ul>
+        <li>response time, access time, or latency: measurs how quickly it responds to single request.</li>
+        <li>milliseconds(ms) or microseconds(us)</li>
+          <ul>
+            <li>HDD: 20ms</li>
+            <li>SSD: 1ms</li>
+          </ul>
+        <li></li>
+      </ul>
+    <li>Connecting Mass Storage</li>
+      <ul>
+        <li>PATA</li>
+        <li>SATA</li>
+        <li>eSATA and Other External Drives</li>
+      </ul>
+    <li>Refining Mass Storage Communication</li>
+      <ul>
+        <li>AHCI</li>
+        <li>NVMe</li>
+      </ul>
+    <li>Protecting Data with RAID</li>
+      <ul>
+        <li>SCSI</li>
+        <li>RAID</li>
+          <ul>
+            <li>RAID 0</li>
+            <li>RAID 1</li>
+            <li>RAID 5</li>
+            <li>RAID 6</li>
+            <li>RAID 10</li>
+            <li>RAID 0+1</li>
+          </ul>
+        <li>Implementing RAID</li>
+          <ul>
+            <li>Software RAID</li>
+            <li>hardware RAID</li>
+          </ul>
+        <li>Dedicated RAID boxes</li>
+      </ul>
+    <li>Installing Drives</li>
+      <ul>
+        <li>Choosing drives</li>
+          <ul>
+            <li>HDD or SSD: needs SATA connection</li>
+            <li>CMOS setting - configure SATA as: IDE/RAID/AHCI</li>
+            <li>Quick test to verify</li>
+          </ul>
+        <li>Cabling SATA drives</li>
+          <ul>
+            <li>no jumper settings</li>
+            <li>SATA supports only a single device per controller channel.</li>
+          </ul>
+        <li>Connecting SSD</li>
+      </ul>
+
+    <li>BIOS Support</li>
+      <ul>
+        <li>Configuring controller</li>
+          <ul>
+            <li>Most controller remain active,and ready to detect new HDD/SSD</li>
+            <li>CMOS setting - controller (ON/OFF)</li>
+          </ul>
+        <li>Autodetection</li>
+          <ul>
+            <li>Autodetection configure hard dirves.</li>
+            <li>SATA 0 , SATA 1, etc</li>
+          </ul>
+        <li>Boot order</li>
+        <li>Enabling AHCI</li>
+          <ul>
+            <li>CMOS configuration options:aka options/modes/HBA configs</li>
+              <ul>
+                <li>IDE/SATA or compatibility mode</li>
+                <li>AHCI</li>
+                <li>RAID</li>
+              </ul>
+            <li>AHCI works best for current HDD and SSD</li>
+            <li>Don't install modern OS in Compatibility mode.</li>
+          </ul>
+      </ul>
+    <li>Troubleshooting HDD installation</li>
+      <ul>
+        <li>Autodetection feature of CMOS setup utility</li>
+        <li>If system doesn't see drive in autodection: something wrong with hardware config (failed,improper cable, no power)</li>
+      </ul>
 
 
 
