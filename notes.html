@@ -1877,10 +1877,222 @@
 <h3>Implementing Mass Storage</h3>
 
 <ol>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Pertitioning</li>
+    <ul>
+      <li>HDD: compose of storage areas aka sector.</li>
+        <ul>
+          <li>older HDD: 512byte per sector</li>
+          <li>modern HD: 4096byte Advanced Format sector</li>
+        </ul>
+      <li>SSD:comose of storage areas aka pages.</li>
+        <ul>
+          <li>SSD: 4096byte per page.</li>
+          <li>BLOCK: group of pages. block size: varies, 128 pages per block is common.</li>
+        </ul>
+      <li>Communicating with HDD or SSD</li>
+        <ul>
+          <li>CPU and OS never talk to drive's internal structures (sector, page, or block).</li>
+          <li>HDD/SSD controller usse LBA: logical block addressing- to present storage chunks as number.</li>
+          <li>LBA chunks are also called blocks.</li>
+            <ul>
+              <li>LBA starts at LBA0</li>
+              <li>OS interacts with storage drives via LBA chunks aka blocks.</li>
+              <li></li>
+            </ul>
+        </ul>
+      <li>Partitioning: process of electronically subdiving physical drive into one or more units,partitions.</li>
+        <ul>
+          <li>partition Hard drive to store more than one OS.</li>
+          <li>Windows support 3 partitioning method: MBR,GPT, and Windows propreitary dynamic storage partitioning scheme.</li>
+          <li>Basic disk: Microsoft term for drive that uses MBR or GPT</li>
+          <li>Dynamic disk: Microsoft term for drive that uses dynamci storage partitioning scheme</li>
+            <ul>
+              <li>Single Windows Computer with 3 Hard Drives can have 1MBR, 1GPT, 1Dynamic disk.</li>
+            </ul>
+        </ul>
+      <li>MBR</li>
+        <ul>
+          <li>Master Boot Record: 1st sector of MBR hard drive, code that informs system about installed OS.</li>
+          <li>PC boots up - BIOS look at 1st sector of Hard Drive for instruction.</li>
+          <li>Master boot record: also contain "partition table" - describes number and size of partitions on disk.</li>
+          <li>MBR partition table: support up to 4 partitions.(4 primary or 3 primary with 1 extension)</li>
+          <li>MBR code instruction use partition table to determine which partition contains active OS.</li>
+          <li>After MBR locates partition: "partition boot sector" loads OS on that partition.</li>
+          <li>Partition Boot Sector:stores information important to its partition - location of OS boot files. </li>
+        </ul>
+        <li>MBR DISK</li>
+          <ul>
+            <li>1 Master Boot Record & 1 Partition table within that MBR per MBR disk.</li>
+            <li>Each partition has a "partition boot sector".</li>
+          </ul>
+        <li>MBR partition table</li>
+          <ul>
+            <li>MBR partition table support two types of partitions:</li>
+            <li>Primary partition</li>
+            <li>Extended partition</li>
+          </ul>
+        <li>Primary Partitions</li>
+          <ul>
+            <li>Designed to support bootable OS</li>
+            <li>Once partition is formatted: partition assigned drive letter (C:/ D:/).</li>
+            <li>1 MBR disk - 4 primary partitions - 4 OS</li>
+            <li>every primary partition in single drive has special setting stored in partition table called "active", that determins "active partition".</li>
+            <li>During Bootup, BIOS/POST read MBR to find "active partition" and boot OS on that partition.</li>
+            <li>Control multiboot setup</li>
+              <ul>
+                <li>Free Linux-based boot manager: GRUB Grand Unified Bootloader</li>
+                <li>Computer boot - GRUB took control from MBR - ask which OS you want to boot.</li>
+              </ul>
+          </ul>
+
+        <li>Extended Partitions</li>
+          <ul>
+            <li>Not bootable</li>
+            <li>Extended partitions may contain multiple "logical drives": each logical drive can get drive letter.</li>
+            <li>Extended partition itself don't receive drive letter</li>
+            <li>Logical drives inside extend parttion receive drive letter</li>
+          </ul>
+        <li>Dynamic Disks</li>
+          <ul>
+            <li>Dynamic disk aka dynamic storage partitioning: Microsfot's new type of partitioning.</li>
+            <li>Microsoft call drive structure created with Dynamic disk a "volume"</li>
+            <li>Partition and Volume = means the same, defined chunk of hard drive.</li>
+            <li>Dynamic disk volume is technically a partition, but can do regular partiton cannot do.</li>
+              <ul>
+                <li>hard drive to dynamic disk: no more limited to four partitions. create many volume as needed</li>
+                <li>create new drive structures: implement RAID, span volumes over multiple drives, extend volumes on more drives.</li>
+                <li>Volume Types</li>
+                  <ol>
+                    <li>Simple volume: similar to primary partition.</li>
+                    <li>Spanned volume: use unallocated space on multiple drives to create single volume. if any spanned drive fails, entire volume lost</li>
+                    <li>Striped volume: RAID0 volume: 2 unallocated spaces on 2 seperate drives and stripe.if any drive fails, lose all data.</li>
+                    <li>Mirrored volume: RAID1 volume: 2 unallocated spaces on 2 sepearte drives and mirror.if one drive fails, other running.</li>
+                    <li>RAID5 volume: 3 or more dynamic disks with equal sized unallocated spaces. (only support on windows server)</li>
+                  </ol>
+              </ul>
+          </ul>
+      <li>GUID Partition Table</li>
+          <ul>
+            <li>GUID: globally unique identifier- provides reference number for object or process that has almost no chance of duplication,unique.</li>
+            <li>MBR limited to 4 partitions, GPT unlimited primary partitions. 128 is Microsoft limitation on Windows</li>
+            <li>MBR partition max size: 2.2TB, GPT unlimited. technically in Zettabytes aka Billion of TB.</li>
+            <li>MBR arranged by "sector", GPT arranged by "LBA"</li>
+            <li>LBA0 = protective MBR</li>
+            <li>LBA1 = GPT sector</li>
+            <li>MBR use MBR and partition table, GPT drives use GPT header and partition entry array.</li>
+            <li>Configure GPT in Windows only with UEFI, cannot with BIOS. Same for MacOS.</li>
+          </ul>
+      <li>Other Partition Types</li>
+          <ul>
+            <li>Hidden partition: primary partition hidden from OS</li>
+            <li>Some PC makes use to  hide backup copy of installed OS, to restore sytem if fails.</li>
+            <li>Swap partition: Linux and UNIX, to act like RAM when system needs more RAM than you have installed.</li>
+            <li>Windows use special file, page file, instead of partition.</li>
+          </ul>
+      <li>When to Partition</li>
+          <ul>
+            <li>install OS on new system</li>
+              <ul>
+                <li>how do youlike to partition the drive?</li>
+              </ul>
+            <li>add additional drive to existing system</li>
+              <ul>
+                <li>OS has built-in tool to help partition it.</li>
+              </ul>
+          </ul>
+          <li>Windows partition Tools</li>
+            <ul>
+              <li>DOS - Windows Me: CLI program called "FDISK"</li>
+              <li>modern Windows: Disk Management</li>
+              <li>modern Windows: CLI program called "diskpart"</li>
+            </ul>
+          <li>Linux partition tools</li>
+            <ul>
+              <li>Oldest: "fdisk" with different command set</li>
+              <li>GUI partition tool: GParted</li>
+            </ul>
+      <li>Partition Done</li>
+            <ul>
+              <li>Partitioning hard drive = large number of blocks on drive.</li>
+              <li>OS needs to store files (.pdf), partition blocks needs to be organized</li>
+              <li>Formatting: process of making partition into something that stores files.</li>
+            </ul>
+    </ul>
+  <li>Formating</li>
+    <ul>
+      <li>Formatting: installs file system onto drive that organizes each partition in a way that OS can store files and folders on drive.</li>
+      <li>Formatting does two things:</li>
+        <ol>
+          <li>Create file system:</li>
+            <ul>
+              <li>organization of all blocks contained in that partition.</li>
+              <li>enabling file storage and retrieval</li>
+            </ul>
+          <li>Create root directory in file system that enable partition to store folders.</li>
+        </ol>
+      <li>File Systems in Windows</li>
+      <ul>
+        <li>Windows built-in formatting utility: create one or more file system on partition or volume.</li>
+        <li>Block = base storage area for hard drive</li>
+        <li>Block = 4096 bytes of data.</li>
+        <li>Windows file system: organize blocks of data into groups, called "clusters".</li>
+        <li>Cluster size: varies by file system and size of partition.</li>
+        <li>in small partition: each cluster is made up of one block.</li>
+        <li></li>
+        <li>Microsoft file systems: FAT32, NTFS, exFAT (for removable media)</li>
+      </ul>
+        <ul>
+          <li>FAT32</li>
+          <li>NTFS</li>
+          <li>exFAT</li>
+        </ul>
+      <li>File System in MacOS</li>
+        <ul>
+          <li>APFS</li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      <li>File System in Linux</li>
+        <ul>
+          <li>File sytem:BTRFS, XFS, ZFS, ext4</li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      <li>Partitioning,Formatting, and Pooling Process</li>
+        <ul>
+          <li>Bootable Media</li>
+          <li>Installation Media</li>
+          <li>DIsk Management</li>
+          <li>Disk Initialization</li>
+          <li>Dynamic Disks</li>
+        </ul>
+    </ul>
+  <li>Troubleshooting Hard Drives</li>
+    <ul>
+      <li>Error checking</li>
+      <li>Defragmentation</li>
+      <li>Disk cleanup</li>
+      <li></li>
+    </ul>
+  <li>Troubleshooting Hard Drie Implementation</li>
+    <ul>
+      <li>Installation Errors</li>
+        <ul>
+          <li>Partitioning</li>
+          <li>Formatting</li>
+          <li>Mental reinistallation</li>
+        </ul>
+      <li>Data corruption</li>
+      <li>Dying Hard drive</li>
+      <li>Troubleshooting RAID</li>
+        <ul>
+          <li>Drive not recognized</li>
+          <li>RAID stops working</li>
+          <li>RAID not found</li>
+        </ul>
+    </ul>
 
 </ol>
 
