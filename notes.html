@@ -2037,81 +2037,457 @@
         <li>Block = 4096 bytes of data.</li>
         <li>Windows file system: organize blocks of data into groups, called "clusters".</li>
         <li>Cluster size: varies by file system and size of partition.</li>
-        <li>in small partition: each cluster is made up of one block.</li>
+        <li>in small partition: each cluster is made up of one block. file larger than 4096bytes will use as many cluster as needed.</li>
         <li></li>
         <li>Microsoft file systems: FAT32, NTFS, exFAT (for removable media)</li>
       </ul>
         <ul>
+          <li>FAT</li>
+            <ul>
+              <li>File Allocation Table: a data structure and indexing system - to keep track of stored data on hard drive.</li>
+              <li>FAT is "data structure" but inreality it is 2 column spreadsheet.</li>
+            </ul>
           <li>FAT32</li>
+            <ul>
+              <li>32bit FAT</li>
+              <li>high-level formatting: mapping bad blocks. </li>
+              <li>Bad block special status code: 0000FFF7</li>
+              <li>Good block special status code: 00000000</li>
+              <li>End of file marker status code: 0000FFFF, mark as the last cluster of the file saved.</li>
+              <li>Quick format:Create FAT and create blank root directory. </li>
+              <li>Full format: format utility test every sector to mark out bad blocks/unusable ones.</li>
+              <li>After data(mom.txt) is all saved in various clusters, Windows locates "file'ss folder"</li>
+              <li>File's folder: stored on block as different set of blocks, on disk.</li>
+              <li>File's folder stores/records: filename, size, date/time, strating cluster</li>
+              <li>mom.txt 13234 04-07-2025 10:49a  03213ABB</li>
+              <li>FAT32 Cluster Sizes</li>
+                <ul>
+                  <li>Cluster size scale according to the file system.</li>
+                  <li>FAT32 cluster size: 4KB to 32KB, based on volume/partition size. Common cluster size 4KB.</li>
+                  <li>Drive size: 512MB - 8GB | Cluster size: 4KB</li>
+                  <li>Drive size: 8192MB - 16GB | Cluster size: 8KB</li>
+                  <li>Drive size: 16384MB - 32GB | Cluster size: 16KB</li>
+                  <li>Larger than 32768MB | Cluster size: 32KB</li>
+                </ul>
+              <li>Fragmentation</li>
+                <ul>
+                  <li>Fragmented: file is in two pieces.</li>
+                  <li>Erase file: Windows does not delete block enteries in FAT.</li>
+                  <li>Windows alter the info in folder by changing first letter of file (mom.txt) to lowercase Greek letter sigma.</li>
+                  <li>sigmasign.mom.txt 13234 04-07-2025 10:49a  03213ABB</li>
+                  <li>When you delete file, windows moves file listing (not actual block) to special hidden directory-access via Recylin Bin</li>
+                </ul>
+              <li>Disk Defragmenteer aka Optimize Drive</li>
+                <ul>
+                  <li>rearrange files into neat contiguous chunks.</li>
+                  <li>SSD trim featuere: enables OS to issues commands to clean up and reuse deleted areas.</li>
+                </ul>
+            </ul>
           <li>NTFS</li>
+            <ul>
+              <li>New Technology File System: uses clusters of blocks and file allocation tables.</li>
+              <li>6 improvements over FAT32</li>
+                <ol>
+                  <li>redundancy</li>
+                  <li>Security</li>
+                  <li>Compression</li>
+                  <li>Encryption</li>
+                  <li>Disk Quotas</li>
+                  <li>Cluster sizing</li>
+                </ol>
+              <li>NTFS Structure</li>
+                <ul>
+                  <li>MFT: master file table - enhanced file allcoation table.</li>
+                  <li>NTFS partition keeps backup copy of most criticial parts of MFT in middle of disk, chance to save MFT and MFT copy.</li>
+                  <li>When Defragment NTFS partition, small and immovable chunk, near the front is MFT</li>
+                </ul>
+              <li>Security</li>
+                <ul>
+                  <li>ACL: access control list: provides security for objects (files and folders are objects in NTFS views)</li>
+                </ul>
+              <li>Compression</li>
+                <ul>
+                  <li>Compress file and folder: save space </li>
+                  <li>Compression slow  access time: OS must uncompress every time</li>
+                  <li>Encryption</li>
+                    <ul>
+                      <li>EFS: encrypting file system, from Microsoft</li>
+                      <li>Encryption make files unreadable to anybody who don't ahve right key.</li>
+                    </ul>
+                  <li>Disk Quotas</li>
+                    <ul>
+                      <li>Disk quotas: enables admin to set limits on drive space usage to users.</li>
+                      <li>Cluser sizes</li>
+                        <ul>
+                          <li>NTFS basic disk: 2TB</li>
+                          <li>NTFS dynamic disk: 16TB default, up to 8PB</li>
+                          <li>NTFS dynamic tweaking cluster size: 16XB</li>
+                          <li>NTFS uses clusters like FAT32</li>
+                            <ul>
+                              <li>Drive size: 7MB -16TB | Cluster size: 4KB</li>
+                              <li>Drive size: 16TB - 32TB | Cluster size: 8KB</li>
+                              <li>Drive size: 32TB - 64TB | Cluster size: 32KB</li>
+                              <li>Drive size: 64TB - 128TB | Cluster size: 64KB</li>
+                              <li>Drive size: 128TB - 256TB | Cluster size: 128KB</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
           <li>exFAT</li>
+            <ul>
+              <li>FAT32: Drive size: 2TB, File size: 4GB</li>
+              <li>exFAT: Drive size: 64ZB (512TB reality), File size: 16EB</li>
+              <li>FAT32 cluster size: 32bit cluster</li>
+              <li>exFAT cluster size: 64bit cluster</li>
+              <li>exFAT lacks NTFS featurs: permission, compression, encryption</li>
+            </ul>
         </ul>
       <li>File System in MacOS</li>
         <ul>
-          <li>APFS</li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>1998-2017: HFS+ Hierarchical File System Plus</li>
+          <li>2017 onward: APFS Apple File System</li>
+          <li>AFPS optimized for SSD: full disk encryption, enable snapshots, etc.</li>
+          <li>macOS can read and write to different file systems - FAT32, exFAT, but read only for NTFS</li>
         </ul>
       <li>File System in Linux</li>
         <ul>
           <li>File sytem:BTRFS, XFS, ZFS, ext4</li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>ext: Extended File System</li>
+          <li>ext4 support volume size 1EB, 16TB file size</li>
+          <li>Linux file system can read write to NTFS, FAT32, exFAT, HFS+, APFS</li>
+          <li>Enterprise level (data center) linux file system: ZFS or newer BTRFS</li>
+          <li>ZFS and BTRFS offer powerful copy and disk management features.</li>
         </ul>
       <li>Partitioning,Formatting, and Pooling Process</li>
         <ul>
           <li>Bootable Media</li>
-          <li>Installation Media</li>
+            <ul>
+              <li>OS: any software that can boot up a system.</li>
+              <li>Boot device/disc: any removalbe media(usb or disc with bootabla OS installed)</li>
+              <li>Every boot device has: parttioning tools and way to format new partition.</li>
+              <li>System boots from boot device: load OS that enables partition, format, and install full OS.</li>
+              <li>Boot device can also be medium: that has image of installation disc. Images are stored as .iso file</li>
+            </ul>
+          <li>Partitioning and formatting with installation media</li>
+            <ul>
+              <li>Boot installation media: installation program detects hard drive that is not yet partitioned.</li>
+              <li>Prompt:sequence of steps to partition and format hard drive.</li>
+              <li>Where do you want to intall Windows?</li>
+              <li>Windows create 3 partitions: </li>
+                <ul>
+                  <li>EFI or System reserved partition</li>
+                    <ul>
+                      <li>100MB on MBR</li>
+                      <li>16MB on GPT</li>
+                    </ul>
+                  <li>C: NTFS partition</li>
+                  <li>Recovery partition</li>
+                </ul>
+            </ul>
           <li>DIsk Management</li>
+            <ul>
+              <li>Primary GUI tool for partitioning and formatting drive after installation.</li>
+              <li>dskmgmt.msc</li>
+                <ul>
+                  <li>initialization</li>
+                  <li>creating volumes</li>
+                  <li>change drive letters</li>
+                  <li>use dynamic disks</li>
+                  <li>extend drives</li>
+                </ul>
+              <li>Command line tool for disk management</li>
+                <ul>
+                  <li>cmd - diskpart</li>
+                  <li>older command: FDISK</li>
+                </ul>
+            </ul>
           <li>Disk Initialization</li>
+            <ul>
+              <li>Disk initialization is a process in windows, special information is placed on hard drive.</li>
+                <ul>
+                  <li>information includes: identifier that say " this drive belongs in this sytem" and info that defines what hard drive does in system.</li>
+                  <li>if hard drive is part of RAID: RAID info is store in initialization</li>
+                  <li>All NEW drives: must be initialize before you can use them.if not disk show as "Unknown" in Disk management.</li>
+                  <li>choose: MBR or GPT as partition style</li>
+                  <li>Drive Status</li>
+                    <ul>
+                      <li>Foreign drive: when you move dynamic drive from one computer to another</li>
+                      <li>Formatting: when you formatting a drive</li>
+                      <li>Failed: damaged or corrupted disk</li>
+                      <li>Online: healthy disk</li>
+                      <li>Offline: corrupted or communication issue</li>
+                      <li>Unallocated:</li>
+                      <li>Active:</li>
+                    </ul>
+                  <li>Newly installed drive: always set as "Basic Disk".</li>
+                </ul>
+              <li>Create parition and volumes in DISK MANAGEMENT</li>
+                <ul>
+                  <li>Unallocated drive - new Simple volume (size, name, mount to existing volume)</li>
+                  <li>Format file system type: less than 32GB = FAT32/NTFS. more than 32GB = NTFS</li>
+                  <li>Volume label: Volume name. Allocation unit size: Cluster size.</li>
+                </ul>
+            </ul>
+
           <li>Dynamic Disks</li>
+            <ul>
+              <li>Convert Basic disk to dynamic disk: primary and extened partition no longer exist.</li>
+              <li>Dynamic disk: divided into "Volume" not "Partition"</li>
+              <li>Dynamic disk VOLUME types</li>
+                <ol>
+                  <li>Simple</li>
+                    <ul>
+                      <li>act like primary partition. one dynamic only means only simple volume.</li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                  <li>Spanned</li>
+                    <ul>
+                      <li>extend volume to grab extra space on different dynamic disk = created spanned volume</li>
+                      <li></li>
+                    </ul>
+                  <li>Striped</li>
+                    <ul>
+                      <li>2 or more dynamic disks can combine into striped volume. (aka RAID 0).</li>
+                      <li></li>
+                    </ul>
+                  <li>Mirrored</li>
+                    <ul>
+                      <li>mirror set: with 2 drives (RAID 1)</li>
+                      <li></li>
+                    </ul>
+                  <li>RAID5</li>
+                    <ul>
+                      <li>Disk management enable RAID 5 creation: 3 or more disks (all WIndows PRO)</li>
+                      <li></li>
+                    </ul>
+                  <li>Storage spaces</li>
+                    <ul>
+                      <li>Microsoft include Storage spaces, alternate way to do software pseudo-RAID in pooling form.(similar to RAID5)</li>
+                      <li>Disk management can't do nested RAID: 0 + 1 or 1 + 0, use hardware RAID.</li>
+                    </ul>
+                </ol>
+              <li>Mounting PARTITIONS as FOLDERS</li>
+                <ul>
+                  <li>Partitions and volumes: can be mounted as FOLDER on another drive,aka mount point.</li>
+                  <li>Create mount point: unallocated - new simple volume - select mount point (C:\Documents)</li>
+                </ul>
+            </ul>
         </ul>
+        <li>Assigning and Changing Drive Letters and Paths</li>
+          <ul>
+            <li>Formatting Partition: can do in File explorer</li>
+            <li>Storage spaces:similar to RAID</li>
+              <ul>
+                <li>Storage pool: group physical drives of any size into single storage pool.</li>
+                <li>Resiliency mechanism: provides extra layers of redundancy</li>
+              </ul>
+            <li>Storage Space Types</li>
+              <ol>
+                <li>Simple spaces: like JBOD, multiple drives into one virtual drive. no Resiliency</li>
+                <li>Mirror spaces: more than one copy of data.2way mirror: 2 disks min, 3way mirror:5 disks min. RAID 1 or RAID 10 redundancy, Resiliency,performace</li>
+                <li>Parity spaces: RAID5 or 6, added layer of resiliency. </li>
+              </ol>
+          </ul>
+        <li>Stroage sapces are virtual drives that are created from storage pool free spaces.</li>
+        <li>Storage pool is collection of physical drives</li>
+        <li>Thin provisioning: storage space feature, let you create a space with more capacity than your physical drives provide currenlty.</li>
     </ul>
   <li>Troubleshooting Hard Drives</li>
     <ul>
-      <li>Error checking</li>
-      <li>Defragmentation</li>
+      <li>NTFS: cluster and block are same thing, 4KB chucnk of drive</li>
+      <li>Official term for cluster: allocation unit</li>
+      <li>Hard Drive Mantenance</li>
+        <ol>
+          <li>Error checking</li>
+            <ul>
+              <li>Chkdsk or Error Checking in Windows</li>
+              <li>Check for bad block, plafce 0000FFF7 (yellow cone) in FAT/MFT</li>
+              <li>Check for "lost chains": blocks that have no filename associations</li>
+              <li>Check for parent and child folder links.</li>
+              <li>MacOS: Disk utility: First Aid check for error and attempt to repair.</li>
+              <li>Linux fsck:</li>
+            </ul>
+          <li>Defragmentation</li>
+            <ul>
+              <li>Fragmentation increase hard drive access times so Defragmenting is important </li>
+              <li>SSD: retrim, inform SSD what sectors are not being used by file system. and erase them.</li>
+            </ul>
+        </ol>
+
       <li>Disk cleanup</li>
-      <li></li>
+        <ul>
+          <li>Files in recyle bin</li>
+          <li>temporary internet files: visit website, browser keeps copies of graphics and contents </li>
+          <li>dowloaded program files: ActiveX and Java applets.(inside Internet Options inside browser-browsing history)</li>
+          <li>Temporary files: "Temp" folder inside Windows.</li>
+        </ul>
+      <li>Windows Disk Cleanup tools will clean all files mentioned above.</li>
+      <li>Windows 10 and up: built into storage section of settings app: come with "storage sense"</li>
+      <li>Storage sense run automatically by default</li>
     </ul>
   <li>Troubleshooting Hard Drie Implementation</li>
     <ul>
-      <li>Installation Errors</li>
+      <li>1.Installation Errors</li>
         <ul>
+          <li> 4 steps of drive installation - holding data</li>
+            <ol>
+              <li>Connectivity</li>
+              <li>System setup</li>
+              <li>Partitioning</li>
+              <li>Formatting</li>
+            </ol>
           <li>Partitioning</li>
+            <ul>
+              <li>Partitioning error falls into 2 groups</li>
+              <li>1. Failing to partition at all</li>
+                <ul>
+                  <li>Drive won't appear in File Explorer/ Windows explorer</li>
+                  <li>Drive will appear in Disk management</li>
+                </ul>
+              <li>2. Making wrong size or type of partition.</li>
+              <li>FIX: Disk Management</li>
+            </ul>
           <li>Formatting</li>
+            <ul>
+              <li>Failing to format = drive unable to hold data. "is not accessible" error</li>
+              <li>C:\> prompt "invalid media type" error.</li>
+              <li>New drive hide significant number of extra blocks that they use to replace bad blocks automatically</li>
+            </ul>
           <li>Mental reinistallation</li>
         </ul>
-      <li>Data corruption</li>
-      <li>Dying Hard drive</li>
-      <li>Troubleshooting RAID</li>
+      <li>2.Data corruption</li>
         <ul>
-          <li>Drive not recognized</li>
+          <li>Dta loss/corruption: power surges, accidental shutdown, corrupted installtaion media, virus</li>
+          <li>Core Boot File Corrupted:</li>
+            <ul>
+              <li>Error loading OS</li>
+              <li>An error occured while attempting to read boot configuration data</li>
+            </ul>
+          <li>FIX for Data Corruption</li>
+            <ul>
+              <li>Error Checking Utility: mark bad block, move data to good block.</li>
+              <li>Built in ECC error correction code: constantly checks drives for bad blocks</li>
+            </ul>
+        </ul>
+      <li>3.Dying Hard drive</li>
+        <ul>
+          <li>extended read/write times: caused by connection to a file being interrupted or terminated and result in data corruptiong.</li>
+          <li>continuous high piteched squeal</li>
+          <li>loud clicking sounds, continuous grinding noises, rumbling noises</li>
+          <li>LED at front of PC case: provide pc health info.(Bicolor) Green/amber.</li>
+          <li>Symptons dying drive</li>
+            <ul>
+              <li>OS drive: system will lock, error: "Bootable device not found"</li>
+              <li>2nd drive: wont appear in file explorer.</li>
+            </ul>
+          <li>FIX hard drive</li>
+            <ul>
+              <li>System Setup Program: see if autodetect sees the drive</li>
+              <li>if yes, no physical issue</li>
+              <li>if autodetect fails, shut off -remove data cable - restart - listen to drive</li>
+              <li>if drive spins = power good aka drive is still good-ish. could be data cable?</li>
+              <li>if no spin = other power cable, not working? dead HD?</li>
+              <li></li>
+            </ul>
+        </ul>
+
+      <li>4.Troubleshooting RAID</li>
+        <ul>
+          <li>Drive not recognized: check power cox they require special RAID connector.</li>
           <li>RAID stops working</li>
+            <ul>
+              <li>RAID 0: one drive fails, BSoD. "Missing drive in OS" "Bootable device not found"</li>
+              <li>RAID 0: MacOS: SPoD</li>
+              <li>FIX - S.M.A.R.T reader software: disk diagnostic tool</li>
+              <li>Slow performance: clue to check "Device manager" or RAID controller firmware.</li>
+            </ul>
           <li>RAID not found</li>
+            <ul>
+              <li>CompTIA term: "RAID not found" - dont exist as error.</li>
+              <li>Causes: Dead drive or faulty controller</li>
+            </ul>
         </ul>
     </ul>
 
 </ol>
 
 
-
-
-
-
-
-
-
-
-
-
   <hr><br>
   ----------------------------------------------------------------
+<h3>Peripherals</h3>
+
+<ol>
+<li>Common Ports</li>
+  <ul>
+    <li>Serial ports</li>
+    <li>USB ports</li>
+      <ul>
+        <li>USB standard</li>
+        <li>USB cable and connectors</li>
+        <li>USB hubs</li>
+        <li>USB issues</li>
+      </ul>
+    <li>Thunderbolt ports</li>
+    <li>General Port Issues</li>
+  </ul>
 
 
+<li>Common Peripherals</li>
+  <ul>
+    <li>Keyboard</li>
+    <li>Pointing devices</li>
+    <li>Biometric devices</li>
+    <li>Barcode/QR scanner</li>
+    <li>Touch screens</li>
+    <li>KVM </li>
+    <li>Game controller</li>
+    <li>Digitizers</li>
+  </ul>
 
+<li>Multimedi Devices and Formats</li>
+  <ul>
+    <li>Digital Camera Storage media</li>
+    <li>Connection</li>
+    <li>Analog to Digital Sound</li>
+    <li>Recorded Sound Formats</li>
+    <li>Speaker support</li>
+    <li>jacks</li>
+    <li>microphones</li>
+    <li>Headsets</li>
+    <li>Video formats</li>
+    <li>Codecs</li>
+    <li>Wrappers</li>
+  </ul>
+
+<li>Removable Storage Devices</li>
+  <ul>
+    <li>Flash Memory</li>
+      <ul>
+        <li>Flash drives</li>
+        <li>Compact Flash</li>
+        <li>Secure Digital</li>
+      </ul>
+    <li>Optical Discs</li>
+      <ul>
+        <li>CD-Formats</li>
+        <li>CD-ROM speeds</li>
+        <li>CD-R</li>
+        <li>CD-RW</li>
+        <li>DVD Formats</li>
+        <li>DVD-ROM</li>
+        <li>Recordable DVD</li>
+        <li>Bluray Format</li>
+        <li>BD-ROM</li>
+        <li>BD-R BD-RE</li>
+        <li></li>
+      </ul>
+      <li></li>
+  </ul>
+
+
+</ol>
 
 
 
