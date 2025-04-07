@@ -2422,15 +2422,119 @@
 <li>Common Ports</li>
   <ul>
     <li>Serial ports</li>
+      <ul>
+        <li>Recommended standard: RS232 </li>
+        <li>9-pin D-Shell Male Socket called DB9 or RS232.</li>
+      </ul>
     <li>USB ports</li>
       <ul>
+        <li>USB Hub controller: integrated circuit built into chipset.Act as interface betwen System and USB devices, support 127 devices.</li>
+        <li>USB Root Hub: Connected to USB controller, make physical connection to USB ports, a bus similar to expansion bus.</li>
+        <li>USB host controller(Boss) sends commands and provides power to USB devices.</li>
+        <li>Host Controller: Upstream, controlling devices connected drownstream to it.</li>
         <li>USB standard</li>
+          <ul>
+            <li>USB 1.1</li>
+              <ul>
+                <li>Low speed USB: 1.5Mbps max</li>
+                <li>Full speed USB: 12Mbps</li>
+                <li>White</li>
+              </ul>
+            <li>USB 2.0</li>
+              <ul>
+                <li>Hi speed USB: 480Mbps</li>
+                <li>Black color</li>
+              </ul>
+            <li>USB 3.0</li>
+              <ul>
+                <li>Super speed USB: 5Gbps (also known as USB 3.1 Gen1)</li>
+                <li>CompTIA doesn't recognized as USB 3.1 Gen1</li>
+                <li>Dark Blue</li>
+              </ul>
+            <li>USB 3.1</li>
+              <ul>
+                <li>Super speed USB: 10Gbps (USB 3.1 Gen2)</li>
+                <li>Teal</li>
+              </ul>
+            <li>USB 3.2</li>
+              <ul>
+                <li>Super speed USB: 20Gbps (2x2, 2nd generation, 2 lanes).</li>
+                <li>Red</li>
+              </ul>
+          </ul>
+        <li>USB Host Controller</li>
+          <ul>
+            <li>USB 1.1 Host Controller: Low speed USB, Full speeed USB</li>
+            <li>USB 2.0 Host Controler: Hi speed USB</li>
+            <li>USB 3.0 Host Controller: Super speed 5Gbps</li>
+            <li>USB 3.1 Host Controller: Super speed 10Gbps</li>
+          </ul>
+        <li>USB end points</li>
+          <ul>
+            <li>End point: built in process, use USB controller resourcecs.</li>
+            <li>USB controller resource warning: when enough devices are connected to a controller to exceed the limit.</li>
+            <li>FIX: move to different controller.</li>
+          </ul>
         <li>USB cable and connectors</li>
+          <ul>
+            <li>USB 1.1 connectors (4pin)</li>
+              <ul>
+                <li>USB A: plug upstream toward host controller (on PC)</li>
+                <li>USB B: plug downstream into USB devices (on Printer)</li>
+              </ul>
+              <ul>
+                <li>USB-A, miniUSB-A, microUSB-A</li>
+                <li>USB-B, miniUSB-B, microUSB-B</li>
+              </ul>
+            <li>USB 3.0/3.1 (9pin)</li>
+            <li>USB Type C (24pin)</li>
+              <ul>
+                <li>USB-C support USB 3.1 and Thunderbolt.</li>
+              </ul>
+            <li>Cable Length</li>
+              <ul>
+                <li>USB 1.1 & 2.0 : 5 meters</li>
+                <li>USB 3.x : so max standard set. 2 meters is long ones.</li>
+                <li>USB is two way(bidirectional) connection: longer begins to suffer from electrical interferenc</li>
+              </ul>
+          </ul>
         <li>USB hubs</li>
+          <ul>
+            <li>Hub extend single USB connection to more USB ports, directly from one of USB port conencted to root hub.</li>
+            <li>Powered Hub:</li>
+            <li>Bus-Powerd Hub:</li>
+          </ul>
         <li>USB issues</li>
+          <ul>
+            <li>single USB port: only provides 500 miliamps of power, must be split among all devices connected to unpowered hub.</li>
+            <li>USB selective suspend: control USB power when PC is off. Control panel - Power Options - Advanced.</li>
+            <li>Device manager- Hub properties- power mgmt- uncheck (allow computer to turn off this device to save power)</li>
+            <li>USB permissions: UEFI USB settings won't impact USB ports on "add-on card"</li>
+            <li>Backwared compatibility: UEFI USB settings</li>
+          </ul>
       </ul>
     <li>Thunderbolt ports</li>
+      <ul>
+        <li>Intel and Apple: high-speed alternative to USB</li>
+        <li>Thunderbolt: suppr4K single monitor</li>
+        <li>Thunderbolt versions</li>
+          <ul>
+            <li>Thunderbolt 1: mDP connector, full duplex 10Gpbs, equal to USB 3.1</li>
+            <li>Thunderbolt 2: mDP connector, full duplex 20Gbps, equal to USB</li>
+            <li>Thunderbolt 3: USB-C connector, full duplex 40Gbps, </li>
+          </ul>
+        <li>Thunderbolt cable</li>
+          <ul>
+            <li>Copper: chains extend to 3 meters</li>
+            <li>Fiber: chain extend to 60 meters</li>
+          </ul>
+      </ul>
     <li>General Port Issues</li>
+      <ul>
+        <li>Port can be OFF in system setup.</li>
+        <li>Port driver in OS are excellent</li>
+        <li>If port enable in system setup, but fail to see active port, its physical problem</li>
+      </ul>
   </ul>
 
 
