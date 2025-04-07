@@ -1609,31 +1609,214 @@
       </ul>
     <li>Connecting Mass Storage</li>
       <ul>
+        <li>Communication beteween CPU and Storage Device requires 2 main items.</li>
+          <ul>
+            <li>Standardized physical connection: CPU, drive controlelr, and physical drive.</li>
+              <ul>
+                <li>ST-506: 1980 - 1990</li>
+                <li>PATA: 1990 - 2010 (ATA/ATAPI version 1) </li>
+                <li>SATA: 1990 - Today (ATA/ATAPI version 7)</li>
+                <li>SAS: 2005 - Today</li>
+                <li>M.2: 2010 - Today</li>
+              </ul>
+            <li>CPU needs to use standardized protocol: special language to speak to storage to read/write data to device.</li>
+          </ul>
+      </ul>
+      <ul>
         <li>PATA</li>
+          <ul>
+            <li>Comptia term: IDE integraded drive electronis drive.</li>
+            <li>IDE refers to any hard drive with built-in controller, all hard drives are IDE drives technically.</li>
+            <li>IDE cables = 40pin ribbon cables for data COMPTIA called it IDE cable.</li>
+              <ul>
+                <li>block airflow, pain to insert</li>
+                <li>limited to 18inches</li>
+                <li>can't hot-swap PATA drives</li>
+              </ul>
+            <li>IDE cables = 4pin Molex power connector</li>
+            <li>S.M.A.R.T</li>
+              <ul>
+                <li>ATA/ATAPI version 3 introduce SMART</li>
+                <li>Self-monitoring,analysis, and reporting technology</li>
+                <li>SMART tracks errors and error conditions within the drive.</li>
+                <li>Infomation is stored in nonvolatile memory on the drive, examined externally with SMART reader software.</li>
+              </ul>
+          </ul>
         <li>SATA</li>
+          <ul>
+            <li>Point to point connection between SATA device (HDD,SSD,Optical) and SATA controller(HBA: host bus adapter).</li>
+            <li>SATA data cable: 7 connectors vs PATA 40 wires.</li>
+            <li>Cable lenght: twice PATA , instead 18 inches, SATA is 40 inches (1 meter).</li>
+            <li>Maximum drives: no limit, Snap in SATA HBA into expansion slot for more drive.</li>
+            <li>Data throughput: 30x PATA, </li>
+              <ul>
+                <li>1.5Gbps = max throughput 150MBps</li>
+                <li>3Gbps = max throughput 300MBps </li>
+                <li>6Gbps = max throughput 600MBps</li>
+                <li>1.5Gbps = 192MBps. Encoding scheme used on STA drives take 20% of transferred byes as overhead.</li>
+                <li>SATA utilizes the 8b/10b encoding scheme, where 8 bits of data are transmitted as 10 bits, adding overhead for clock recovery and DC balancing </li>
+              </ul>
+            <li>SATA first to support hot swapping</li>
+          </ul>
+        <li>SATA varity</li>
+          <ul>
+            <li>SATA 1.0: 1.5Gbps/150MBps</li>
+            <li>SATA 2.0: 3Gbps/300MBps</li>
+            <li>SATA 3.0: 6Gbps/600MBps</li>
+            <li>SATA 3.2: 16Gbps/2000MBps</li>
+          </ul>
+        <li>SATAe</li>
+          <ul>
+            <li>SATAe aka SATA Express aka SATA 3.2: ties drive directly into PCIe bus on motherboard.</li>
+            <li>SATAe drops both "SATA link" and "transport layer", full perofromance of PCIe, no overhead.</li>
+            <li>SATAe has unique connectors</li>
+            <li>Motherboard with SATAe support is required.</li>
+          </ul>
         <li>eSATA and Other External Drives</li>
+          <ul>
+            <li>eSATA aka External SATA: extend SATA bus to external devices.</li>
+            <li>eSATA cable: shielded cable in 2 meters lenght. hot swappable.</li>
+            <li>eSATA is gone when USB3.0 appear.</li>
+            <li>Current external drives use: USB (3.0, 3.1, 3.2, C) </li>
+          </ul>
       </ul>
     <li>Refining Mass Storage Communication</li>
       <ul>
         <li>AHCI</li>
+          <ul>
+            <li>Advanced Host Controller Interface, an efficient way to work with SATA HBA, support by Windows.</li>
+            <li>AHCI unlocks SATA's advanced features:</li>
+              <ul>
+                <li>NCQ native command queuing</li>
+                <li>Hot Swapping</li>
+              </ul>
+            <li>NCQ is disk optimization feature for SATA drives.</li>
+              <ul>
+                <li>NCA take SATA interface advantage and achieve faster read/write speed than PATA.</li>
+              </ul>
+            <li>SATA Hot Swapping</li>
+              <ul>
+                <li>SATA support hot swapping</li>
+                <li>Motherboard and OS have to support too.</li>
+              </ul>
+            <li>AHCI mode is enabled at CMOS level, needs to be enabled before OS installation,if not "blue screen"</li>
+            <li>AHCI disabled: SATA drive won't appear in Windows.</li>
+          </ul>
         <li>NVMe</li>
+          <ul>
+            <li>Non volatile memory express: supports communication connection between OS and SSD directly thru PCIe bus lane.</li>
+            <li>Direct connection reduces latency and take full advantage of fast speed SSD.</li>
+            <li>NVMe formats</li>
+              <ul>
+                <li>add-on expansion card using PCIe slot</li>
+                <li>2.5 inch drive works with SATAe connector</li>
+                <li>M.2</li>
+              </ul>
+          </ul>
       </ul>
     <li>Protecting Data with RAID</li>
       <ul>
         <li>SCSI</li>
+          <ul>
+
+            <li>Personal Computer Market: SATA connected HDD and SSD</li>
+            <li>Server market: SCSI - small computer sytem interface</li>
+            <li>SCSI cable: based on version, used various ribbon cable.</li>
+            <li>SAS: Serial Attached SCSI hard drives: fast and robust storage for server and storage arrays.</li>
+            <li>SAS4 speed: 22.5Gbps</li>
+            <li>SAS controller: support SATA drives.</li>
+            <li>SAS connector type: over a dozen different connector, looks like biger SATA connector</li>
+          </ul>
+        <li>Disk Mirroring</li>
+          <ul>
+            <li>data on each drive are identical.</li>
+            <li>Safe but slow</li>
+            <li>Both drives: assigned same drive letter.</li>
+          </ul>
+        <li>Duplexing</li>
+          <ul>
+            <li>Same as mirroring but use separate controller for each drive.</li>
+            <li>exactly two (redundant) drives</li>
+            <li>faster and safer</li>
+            <li>Both drives: assigned same drive letter.</li>
+          </ul>
+        <li>Disk Striping (without parity)</li>
+          <ul>
+            <li>Spread data among multiple (minimum 2) drives.</li>
+            <li>No redundancy. e.g. 50% of file in Disk1, 50% of file in Disk2</li>
+            <li>Fast but not safe, similar to one-drive, one-controller setup.</li>
+            <li>Two or more (non-redundant) drives</li>
+            <li>Both drives: assigned same drive letter</li>
+          </ul>
+        <li>Disk Striping with parity</li>
+          <ul>
+            <li>Protect data by adding extra information: aka parity data.</li>
+            <li>Parity data: can be used to rebuild data if one drives fail.</li>
+            <li>Minimum 3 drives</li>
+            <li>Disk striping with parity= combination of disk mirroring and disk striping.</li>
+            <li>Fast and Safe. Majority of nework severs use it.</li>
+          </ul>
+        <li>JBOD</li>
+          <ul>
+            <li>Just a bunch of disks = multiple independent disks of various sizes.</li>
+          </ul>
         <li>RAID</li>
           <ul>
             <li>RAID 0</li>
+              <ul>
+                <li>Disk striping</li>
+                <li>2 drives, no redundancy</li>
+              </ul>
             <li>RAID 1</li>
+              <ul>
+                <li>Disk mirroring/duplexing</li>
+                <li>2 drives or any even number of drives</li>
+                <li>Ultimate Safety, data is duplicated</li>
+              </ul>
             <li>RAID 5</li>
+              <ul>
+                <li>Disk striping with distributed parity</li>
+                <li>distribute "data and parity information" evenly across all drives.</li>
+                <li>Fastest way for data redundancy</li>
+                <li>3 drives, 1 drive's space is used for parity.</li>
+              </ul>
             <li>RAID 6</li>
+              <ul>
+                <li>Disk striping with extra parity</li>
+                <li>RAID6 is RAID5 with extra parity information.</li>
+                <li>4 drives, can lose up to 2 drives at same time.</li>
+              </ul>
             <li>RAID 10</li>
+              <ul>
+                <li>Nested, striped mirrors aka RAID 1+0 aka "stripe of mirrors"</li>
+                <li>4 drives, pair of drives configured as mirror, same for other pair = pair of RAID1 mirroring.</li>
+                <li>stripe across two mirrored pairs.</li>
+                <li>Speed of striping, reliability of mirroring</li>
+              </ul>
             <li>RAID 0+1</li>
+              <ul>
+                <li>Nested, mirrored stripes</li>
+                <li>4 drives: 2 RAID0 striped arrays, mirror 2 arrays to each other.</li>
+                <li></li>
+              </ul>
           </ul>
         <li>Implementing RAID</li>
           <ul>
             <li>Software RAID</li>
+              <ul>
+                <li>Software: price over performance</li>
+                <li>No special controller needed: SATA controller can make Software RAID array.</li>
+                <li>Disk Management in Windows Server - RAID 0,1,5, works with PATA and SATA</li>
+                <li>Windows 10 and 11: RAID 0 and 1.</li>
+              </ul>
             <li>hardware RAID</li>
+              <ul>
+                <li>Hardware: speed + redundancy</li>
+                <li>intelligent controller: handle RAID functions,controllers have chips with own processor and memory.</li>
+                <li>Hot swapping - ability to replace bad drive without interrupting OS.</li>
+                <li>Hardware RAID: invisible to OS</li>
+                <li>RAID has special configuration utility in flash ROM - access after CMOS but before OS loads.</li>
+              </ul>
           </ul>
         <li>Dedicated RAID boxes</li>
       </ul>
@@ -1688,21 +1871,18 @@
 
   </ol>
 
-
-
-
-
-
-
-
-
-
   <hr><br>
   ----------------------------------------------------------------
 
+<h3>Implementing Mass Storage</h3>
 
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 
-
+</ol>
 
 
 
