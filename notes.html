@@ -2886,71 +2886,325 @@
 <ol>
   <li>Registry</li>
     <ul>
-      <li>Registry Components</li>
+      <li>Registry = database,stores everything about PC (hardware,network,file types,password, color)</li>
+      <li>Registry files aka hives: stores in \%SystemRoot%\System32\config</li>
+      <li>regedit: Registry Edtor</li>
+      <li>When you use control panel or windows settings, you are editing Registry.</li>
+    </ul>
+    <ul>
+      <li>Registry Components: subgroups aka root keys</li>
         <ul>
           <li>HKEY_CLASSES-ROOT</li>
+            <ul>
+              <li>Define: standard class objects used by Windows</li>
+              <li>Class object: named group of functions that defines waht you can do with object it represent.</li>
+              <li>Everything that has to do with files on system - defined by class object.</li>
+            </ul>
           <li>HKEY_CURRENT_USER</li>
+            <ul>
+              <li>store current user settings</li>
+              <li>settings such as - desktop color,screensaver,desktop contents</li>
+            </ul>
           <li>HKEY_USERS</li>
+            <ul>
+              <li>store all personalized info for each user.</li>
+            </ul>
           <li>HKEY_LOCAL_MACHINE</li>
+            <ul>
+              <li>contains all data for system's non-user-specific configs, include every device and program in your computer.</li>
+            </ul>
           <li>HKEY_CURRENT_CONFIG</li>
+            <ul>
+              <li>if local machin have more than one options(2 monitors), this one defined which is being used.</li>
+            </ul>
         </ul>
       <li>Talin Registry</li>
         <ul>
-          <li>String value:</li>
-          <li>Binary value:</li>
-          <li>DWORD value:</li>
-          <li>QWORD value:</li>
+          <li>String value: common and flexible, any form of data </li>
+          <li>Binary value: ones and zeros</li>
+          <li>DWORD value: Binary values, limited to 32bits</li>
+          <li>QWORD value: Binary values, limited to 64bits</li>
         </ul>
       <li>Registry Edits</li>
+        <ul>
+          <li>Create backup first</li>
+          <li>e.g. Disable application autostart</li>
+        </ul>
       <li>Command line Registry Edit Tools</li>
+        <ul>
+          <li>reg: full registry editing tool. </li>
+          <li>regsvr32: can modify registry in only one way. adding(registering) dynamic link library(DLL) files as command components in registry</li>
+        </ul>
     </ul>
 
   <li>Basic Windows Toolset</li>
     <ol>
       <li>System Configuration</li>
+        <ul>
+          <li>msconfig: edit and troubleshoot OS, startup processs, services</li>
+          <li>TABS</li>
+            <ul>
+              <li>General: startup selection</li>
+                <ul>
+                  <li>Normal startup</li>
+                  <li>Diagnostic startup</li>
+                  <li>Selective startup</li>
+                </ul>
+              <li>Boot</li>
+                <ul>
+                  <li>Installed OS. set default OS, delete OS from boot menu</li>
+                  <li>Safe boot: minimal, alternate shell, network, or active directory repair</li>
+                  <li>Safe boot will start windows in "safe mode" till you change it again.</li>
+                  <li>Safe mode: minimal, generic, trusted drivers and use for Troubleshooting</li>
+                </ul>
+              <li>Services</li>
+                <ul>
+                  <li>Similar to "Task Manager services"</li>
+                  <li>enable/disable services</li>
+                </ul>
+              <li>Startup</li>
+                <ul>
+                  <li>will open Task Manager - startup section </li>
+                  <li>On/Off programs to load when windows launch</li>
+                </ul>
+              <li>Tools</li>
+                <ul>
+                  <li>List of Tools</li>
+                  <li>Event viewer, performance monitor, command prompt, system information, computer managment</li>
+                </ul>
+            </ul>
+        </ul>
       <li>Windows Settings</li>
+        <ul>
+          <li>Replacing Control Panel: one stop shop utility for windows tools to configure windows.</li>
+          <li>Categories of Settings:</li>
+            <ul>
+              <li>System</li>
+              <li>Devices</li>
+              <li>phone</li>
+              <li>network and internet</li>
+              <li>personalization</li>
+              <li>apps</li>
+              <li>accounts</li>
+              <li>time and language</li>
+              <li>gaming</li>
+              <li>ease of access</li>
+              <li>search</li>
+              <li>privacy</li>
+              <li>update and security</li>
+            </ul>
+        </ul>
       <li>Control Panel</li>
      
     </ol>
 
   <li>Processes, Applications, Services Tools</li>
     <ul>
+      <li>Process: When click on file - copy of program is loaded from HDD to RAM, program is running now, called- process</li>
+      <li>CPU runs the program, grab line of code from RAM and "process" them.</li>
+      <li>Services: processes that run in background, support roles, don't require windows of any form like applications.</li>
+    </ul>
+    <ul>
       <li>Task Manager</li>
+        <ul>
+          <li>One stop shop for managing: applications, processes, services.</li>
+          <li>CTRL + SHIFT + ESC or taskmgr</li>
+          <li></li>
+        </ul>
       <li>Resource Monitor</li>
+        <ul>
+          <li>resmon: Super Task Manager</li>
+          <li>Enable to close "running apps and all associated programs"</li>
+          <li>End Process or End process tree</li>
+        </ul>
       <li>MMC Microsoft Management Console</li>
+        <ul>
+          <li>MMC: framework to support and launch speicial programs called "snap-ins"</li>
+          <li>mmc.exe | snap-in files are .msc</li>
+          <li>MMC snap-ins</li>
+            <ol>
+              <li>azman.msc = authorization manager = define roles and task </li>
+              <li>certlm.msc = certificates = view,export,import,delete certficate</li>
+              <li><b>certmgr.msc = certificates = mange certs, CTL: cert trust list, CRL cert revocation list</b></li>
+              <li>comexp.msc = component services = COM+: component services mgmt tool</li>
+              <li>compmgmt.msc = computer mgmt = system tools(task scheduler,event viewer) storage, and services</li>
+              <li><b>devmgmt.msc = device mgmt = hardware mangt</b></li>
+              <li>devmoderunasuserconfig.msc = DevModeRunAsUserConfig = mgmt sart menu, taskbar,noti area</li>
+              <li><b>diskmgmt.msc = disk mgmt = mgmt disk, volume, partition</b></li>
+              <li><b>eventvwr.msc = event viewer= monitor and trobl messages from windows</b></li>
+              <li>fsmgmt.msc = shared folder= display shared foldere</li>
+              <li><b>gpedit.msc = local group policy editor = config and modify  group policy in side GPO</b></li>
+              <li><b>lusrmgr.msc = local users and groups = mgmt users/gropups</b></li>
+              <li><b>perfmon.msc = performance monitor = diagnose perf issus and collect perf data</b></li>
+              <li>printmanagment.msc = print mgmt = mange print servers and printer</li>
+              <li>rsop.msc = resultant set of policy = view applied policy and predict what policy be applied </li>
+              <li>secpol.msc = local security policy = define security policy for computers in domain</li>
+              <li>services.msc = services = start,stop,config windows services</li>
+              <li><b>taskschd.msc = task scheduler = schedule computer task to run automatically</b></li>
+              <li>tpm.msc = TPM mgmt = config and mgmt TPM secuirty hardware</li>
+              <li>wf.msc = windows defender firewall with advanced security = config policy that provide enhanced network security</li>
+              <li>wmimgmt.msc = WMI control = allow config and control of windows managment instrumentation service</li>
+            </ol>
+        </ul>
       <li>Performance Monitor</li>
+        <ul>
+          <li>Task Manager and Resource Monitor: identify current problems.</li>
+          <li>perfmon.msc: log resource usage to track metrics (CPU RAM usage) over time.</li>
+          <li>Usefulness of Performance monitor requires:</li>
+            <ol>
+              <li>Object: system component that is given set of Characteristics and can be managed by OS as single entity</li>
+              <li>Counter: tracks specific information about object.</li>
+            </ol>
+          <li>Data collector sets: groups of counters, to make report</li>
+          <li></li>
+        </ul>
+        <li>Syslog</li>
+          <ul>
+            <li>UNIX OS (Mac and Linux) use "logging standard" called syslog</li>
+            <li>syslog create information placed in log files. like performance monitor</li>
+            <li>Application: use syslog standards - to write about issues happening to application or about the applicaion</li>
+            <li>Programs:use syslog standards - to write logs, that other syslog standard applications in turn read.</li>
+            <li>syslog = network friendly</li>
+            <li>single syslog server collect syslog data from multiple systems.</li>
+            <li>log files  /var/log </li>
+          </ul>
       <li>Event Viewer</li>
+          <ul>
+            <li>tattletale program, spill the beans about thousands of interesting happenings (events) that system monitors and logs.</li>
+            <li>eventvwr.msc = is tool to read and understand these logs.</li>
+            <li>Event viewer Tabs:</li>
+              <ul>
+                <li>Custom views</li>
+                <li>Subscriptions</li>
+                <li>Applications and services logs</li>
+                <li>Windows Logs</li>
+                  <ul>
+                    <li>Application: record anything that ahs to do with apps or prorams outside fo Windows system files</li>
+                    <li>Security: records secuirty events (failed logons)</li>
+                    <li>Setup: tracks setup and update events for windows system</li>
+                    <li>System: tracks anything to do with windows OS</li>
+                    <li>Forwarded Events</li>
+                  </ul>
+              </ul>
+              <li>Event Levels</li>
+                <ul>
+                  <li>Verbose: extra info, prob useful when debugging</li>
+                  <li>information: happened that went well (successful backup)</li>
+                  <li>warning: event that's not error but may warn about one (low disk sapce)</li>
+                  <li>error: something went wrong (file not loading)</li>
+                  <li>critical: more serious happened (system unexeptectdlly power off)</li>
+                </ul>
+          </ul>
       <li>Certificate Manager</li>
+          <ul>
+            <li>certificate, digital key, that enables programs to encrypt data that may only be read by corresponding key on receiver side.</li>
+          </ul>
     </ul>
 
   <li>MacOS Preferences and Features</li>
     <ul>
       <li>System Preferences</li>
+        <ol>
+          <li>displays</li>
+          <li>network</li>
+          <li>printers</li>
+          <li>scanners</li>
+          <li>privacy</li>
+          <li>accessiblity</li>
+          <li>time machine</li>
+        </ol>
       <li>Apple ID</li>
+      <li>Airdrop</li>
+      <li>Spotlight: global system search tool</li>
+      <li>Keychain: managing sensitive passwrods and certificates.</li>
+      <li>FileVault: storage encryption feature</li>
+      <li></li>
+
     </ul>
 
-  <li></li>
 
+</ol>
+<!-- Date: April 07,2025 -->
 
+  <hr><br>
+  ----------------------------------------------------------------
+<h3>Users, Groups, Permissioins</h3>
 
-
+<ol>
+  <li>Accounts</li>
+  <li>Groups</li>
+  <li>Elevated Privileges</li>
+  <li>Configuring Users and Groups</li>
+  <li>Authentication Options</li>
+  <li>authorization through NTFS</li>
+  <li>NTFS permissions</li>
+  <li>NTFS inheritance</li>
+  <li>Permission propagation</li>
+  <li>Permissions in Linux and MacOS</li>
+  <li>Sharing Resources Securely</li>
+  <li>Locating Shared folders</li>
+  <li>Protecting Data with encryption</li>
+  <li>Beyond Sharing resources</li>
+  <li>User Account Control</li>
 
 
 </ol>
 
-
-
-
-
-
-
-
-
+  <hr><br>
+  ----------------------------------------------------------------
 
 
   <hr><br>
   ----------------------------------------------------------------
 
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
+
+  <hr><br>
+  ----------------------------------------------------------------
 
 
     
