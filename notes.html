@@ -3103,7 +3103,8 @@
 
   <li>MacOS Preferences and Features</li>
     <ul>
-      <li>System Preferences</li>
+      <li>
+        System Preferences</li>
         <ol>
           <li>displays</li>
           <li>network</li>
@@ -3132,20 +3133,161 @@
 
 <ol>
   <li>Accounts</li>
+    <ul>
+      <li>Authentication: identify and grant access to user</li>
+      <li>authorization: determines what authenticated user have access to. Controlled by NTFS,by assigning permission.</li>
+      <li>Local user account; username and password, stored in  C:\Windows\System32\config\SAM</li>
+      <li>organization account via Active Directory using SSO</li>
+    </ul>
   <li>Groups</li>
+  <ul>
+    <li>Group:container that holds user accounts and defined members capabilities.manage multiple users. Users can be member of multiple groups.</li>
+    <li>Admins: grant complete control over machine.</li>
+    <li>Power users: cannot install new devices or access other users files and folders.</li>
+    <li>Standard Accounts(users): cannot edit Registry or access critical system files.Can create group.</li>
+    <li>Guests group:dont have account but need to log on to use system.</li>
+  </ul>
   <li>Elevated Privileges</li>
+    <ul>
+      <li>Run as administrator aka "using elevated privileges"</li>
+      <li>UAC: user account control, when you want ot do something beyond standard account</li>
+      <li></li>
+    </ul>
   <li>Configuring Users and Groups</li>
+    <ul>
+      <li>lusrmgr.msc: Local users and groups: MMC snap-in</li>
+      <li>Computter management - Local users and groups</li>
+        <ul>
+          <li>Users</li>
+          <li>Groups</li>
+        </ul>
+    </ul>
   <li>Authentication Options</li>
+    <ul>
+      <li>Username and Password</li>
+        <ul>
+          <li>Complexity requirement</li>
+          <li>Expiration requirement</li>
+        </ul>
+      <li>Fingerprints and Facial recognize</li>
+      <li>Personal identification number</li>
+    </ul>
   <li>authorization through NTFS</li>
+    <ul>
+      <li>Authorization process: use NTFS as primary tool to determine what user can do with available resources.</li>
+      <li></li>
+    </ul>
   <li>NTFS permissions</li>
+    <ul>
+      <li>Every file and folder on NTFS partition has a "list": that contains "two data sets"</li>
+        <ul>
+          <li>detials of every users and groups that has acces to that file or folder</li>
+          <li>level of access each user or group has to that file or folder</li>
+        </ul>
+      <li>NTFS permission is set of restrictions, that defined level of access.</li>
+      <li>NTFS Permission Concepts</li>
+        <ol>
+          <li>Ownership: </li>
+          <li>Take ownership permission: anyone can seize control of file/folder (admin accounts)</li>
+          <li>Change permission: give or take away permisssionss for other accounts</li>
+          <li>Folder permission: define what user can do to folder.</li>
+          <li>File perminssion: define what user can do to file.</li>
+        </ol>
+      <li>Setting NTFS permission</li>
+        <ul>
+          <li>File/Folder - Properties - Seurity</li>
+          <li>Permissoins are "cumulative"</li>
+        </ul>
+      <li>Standard NTFS permissions for "FOLDER"</li>
+        <ol>
+          <li>Full control: to file or folder</li>
+          <li>modify: read,write,delete-files and subfolders</li>
+          <li>read and execute: run exe program, see folder and subfolder content</li>
+          <li>list folder contents: see folder and subfolder content</li>
+          <li>Read: view folder content</li>
+          <li>Write: write files, create new files and folders</li>
+          <li>Special permission</li>
+
+        </ol>
+    </ul>
   <li>NTFS inheritance</li>
+    <ul>
+      <li>Inheritance determines which NTFS permission any new file/folder contained in folder receive.</li>
+      <li>Grey out checkmark under "allow" means its inheritance</li>
+    </ul>
   <li>Permission propagation</li>
+    <ul>
+      <li>Propagation determines what NTFS permissions are applied to files that are moved or copied into new folder.</li>
+      <li>Move: Same volume- keep permission | Diff voume- inherits new permission</li>
+      <li>Copy: Same volume- inherit new permission | Diff volume- inherits new permission</li>
+      <li></li>
+    </ul>
   <li>Permissions in Linux and MacOS</li>
+    <ul>
+      <li>terminal: ls -l</li>
+      <li> -rwxrw-r--</li>
+      <li> Owner - Group - Everyone</li>
+    </ul>
+    <li>chown command</li>
+      <ul>
+        <li>chown command: enables to change owner and group</li>
+        <li>chown owner group filename</owner></li>
+        <li>chown newowner filename</li>
+      </ul>
+    <li>chmod command</li>
+      <ul>
+        <li>chmod: change permissions.</li>
+        <li>r:4 , w:2, x:1</li>
+        <li>chmod permission filename</li>
+      </ul>
   <li>Sharing Resources Securely</li>
+      <ul>
+        <li>Right click- Give access to</li>
+        <li>Properties-Secuirty - </li>
+      </ul>
   <li>Locating Shared folders</li>
+      <ul>
+        <li>Computer Mgmt - Shared Folders - Shares/Sessions/Open Files</li>
+        <li>Local share means shares added manually</li>
+        <li>Administrative share(Windows preshared ADMIN$) give admin access to local admins.</li>
+      </ul>
   <li>Protecting Data with encryption</li>
+      <li>Windows Encryption Tools</li>
+        <ol>
+          <li>10 Home: no security features</li>
+          <li>10 Pro, Pro for workstation,Enterprse: Encryption File System</li>
+          <li>Advanced Editions: BitLocker - drive encryption</li>
+        </ol>
+      <li>EFS: Encryption File System</li>
+        <ul>
+          <li>File - Properties - General - Advanced - Encrypt contents to secure data</li>
+          <li>if EFS is use: may want to backup file encryption certificate, by "manage your file encryption certificate" in UAC.</li>
+        </ul>
+      <li>BitLocker Drive Encryption</li>
+        <ul>
+          <li>BitLocker: encry full drive, including every user's files not just one user.</li>
+          <li>BitLocker required TPM chip</li>
+          <li>TPM on boot, validate that computer has not changed</li>
+        </ul>
   <li>Beyond Sharing resources</li>
+  <li>Security Policies</li>
+        <ul>
+          <li>Security policies- are rules applied to users and groups that can do anything NTFS Can't do.</li>
+          <li>secpol.msc: Local security policy</li>
+          <li>Policies are useful for "configuring local system" but really shie when you apply every system in the network/domain.</li>
+        </ul>
   <li>User Account Control</li>
+        <ul>
+          <li>UAC: stop unauthorized changes to windows.</li>
+          <li>sudo - UAC command line function</li>
+          <li>UAC levels</li>
+            <ol>
+              <li>Always notify</li>
+              <li>Notify ony when apps try to make changes</li>
+              <li>Notify only when apps try to make changes (do not dim desktop)</li>
+              <li>Never notify/li>
+            </ol>
+        </ul>
 
 
 </ol>
@@ -3154,11 +3296,15 @@
   ----------------------------------------------------------------
 <h3> Maintain and Optimize OS</h3>
   <ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Windows Patch Management</li>
+    <li>MacOS and Linux Patch Management</li>
+    <li>Scheduling maintenance in Windows</li>
+    <li>Scheduling Maintenance in Mac and Linux</li>
+    <li>Controlling autostarting software in windows</li>
+    <li>Controlling autostarting software in Mac and Linux</li>
+    <li>Optimizing OS</li>
+    <li>Preparing for Problems</li>
+ 
   </ol>
 
   <hr><br>
