@@ -3295,16 +3295,117 @@
   <hr><br>
   ----------------------------------------------------------------
 <h3> Maintain and Optimize OS</h3>
+  <p>Maintenance is work you do from time to time to keep OS running well (running utilities to clean up junk on storage)</p>
+  <p>Optimization is change you made to a system to make it better (add RAM/ install new program).</p>
+  <p>OS need Patching to support lastest hardware and defend against newly discoverd security problems.</p>
+  <p>Patch management- process of keeping software updated in safe and timely fashion.</p>
   <ol>
     <li>Windows Patch Management</li>
+      <ol>
+        <li>Quality updates: classic problem fixing patches</li>
+        <li>Feature updates: new Windows versions realease once or twice a year.</li>
+          <ul>
+            <li>reinstall of Windows</li>
+            <li>named year and month: 1703 or 20H2</li>
+            <li>channels: insiders, semi-annual channel, or long term servicing branch (enterprise)</li>
+          </ul>
+      </ol>
     <li>MacOS and Linux Patch Management</li>
+      <ul>
+        <li>Mac: System preferences - software update</li>
+        <li>Ubuntu - software updater</li>
+      </ul>
     <li>Scheduling maintenance in Windows</li>
+      <ul>
+        <li>taskschd.msc, to schedule maintenance.</li>
+        <li>Task Scheduler Tasks:</li>
+          <ol>
+            <li>Trigger: actions or schedules that start a Program</li>
+            <li>Actions: steps that define both program to run and how it is to run.</li>
+            <li>Conditions: extra criteria that must be met for program to run.</li>
+          </ol>
+        <li>Windows utilities (defrag) include built in scheduling option. but to change, must use Opimize drive feature</li>
+      </ul>
     <li>Scheduling Maintenance in Mac and Linux</li>
+      <ol>
+        <li>cron: run a command or program at some fixed interval</li>
+        <li>init system: in charge of all processes running on Unix.(run task, register new task)</li>
+          <ul>
+            <li>Linux: systemd</li>
+            <li>Mac: launchd</li>
+          </ul>
+      </ol>
     <li>Controlling autostarting software in windows</li>
+      <ul>
+        <li>Task Manager </li>
+        <li>Pre windows 8 (used "msconfig" system configuration utility)</li>
+      </ul>
     <li>Controlling autostarting software in Mac and Linux</li>
+      <ul>
+        <li>Mac: add "login item" to user account, to set up autostarting software. (system preference -users and groups - login items</li>
+        <li>Linux: preferences - application - (type) startup - launch startup applications - select/deselect</li>
+      </ul>
     <li>Optimizing OS</li>
-    <li>Preparing for Problems</li>
- 
+      <ol>
+        <li>CPU requirement</li>
+        <li>Graphic requirement</li>
+        <li>RAM requirement</li>
+        <li>Storage requirement</li>
+        <li>External hardware token: USB device containing software licenses that must be plugged into sytsem for software to run</li>
+        <li>Installing software on Mac</li>
+          <ol>
+            <li>Mac App store: click and install</li>
+            <li>.dmg Apple disk image: collection of files macOS can mount as volume visible within Finder.</li>
+              <ul>
+                <li>.dmg include .app (applciation bundle)</li>
+                <li>Double click application: run the file but not install.</li>
+                <li>To install, drag to APplications folder</li>
+              </ul>
+            <li>.pkg Application installer file: if .dmg don't include .app, it will include .pkg</li>
+            <li>double click .pgk will launch installer program</li>
+          </ol>
+        <li>Installing software on Linux</li>
+          <ol>
+            <li>Store: Pop OS</li>
+            <li>download package file - double click - install</li>
+            <li>APT: advanced package tool, built-in package maanager. (via apt-get or apt )</li>
+            <li>Linux alternate packaging formats: "flatpak" "snap"</li>
+          </ol>
+        <li>Uninstall in MacOS</li>
+          <ol>
+            <li>installed via Mac App store app: Launchpad - click and hold on any app - X</li>
+            <li>Drag to Trash</li>
+            <li>Run uninstaller</li>
+          </ol>
+      </ol>
+    <li>Backup Types</li>
+      <ol>
+        <li>Full backup: snapshot of system fils at some point in time.</li>
+        <li>Incremental backup: store changes since last incrementabl backup.</li>
+        <li>differential backup: includes all changes since last full backup </li>
+        <li>synthetic backup: merge full backup and all incremental backup to create one new full backup</li>
+      </ol>
+    <li>Backup Rotation Scheme</li>
+      <ul>
+        <li>3-2-1 backup rule: 3 copies on at least 2 different media types and store at leaste one copy offsite.</li>
+        <li>GFS rotation: grandfather-father-son</li>
+      </ul>
+    <li>MacOS backup</li>
+      <ul>
+        <li>Time Machine, create full system backups aka local snapshots.</li>
+        <li>Time machine: external drive or shared network drive.</li>
+      </ul>
+    <li>Linux Backup</li>
+      <ul>
+        <li>Ubuntu: DeajDup aka Backups</li>
+        <li>backup in external driver, network share or folder on main  hard drive.</li>
+      </ul>
+    <li>System Restore in Windows</li>
+      <ul>
+        <li>Creat "restore point", snapshot of computer configuration at specific time.</li>
+        <li>System restore makes restore points automatic</li>
+        <li>Settings - System - About - System Protection - Restore </li>
+      </ul>
   </ol>
 
   <hr><br>
