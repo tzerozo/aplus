@@ -3416,9 +3416,246 @@
     <li>Windows: CMD/PowerShell | Linux/Mac: GNU Bash/ Zshell/ Fish shell/ C shell/</li>
     <li>su: substitute user or switch user, switch to root account or any account</li>
     <li>sudo: superuser do or substitute user do, elevated prompt </li>
-    <li></li>
+    <li>Drives and folders</li>
+        <ul>
+          <li>Windows: Drive letter assigned</li>
+          <li>Linux  /mount  or /media</li>
+          <li>macOS: /Volumes</li>
+        </ul>
+    <li>Path: file location</li>
+        <ul>
+          <li>Absolute path: exact location</li>
+          <li>Relative path: enough to find it from starting point.</li>
+          <li>Linux is case sensitive</li>
+          <li> ~ is linux's "home directory"</li>
+          <li>UNIX:  /  disallowed character</li>
+          <li>Windows:  *  "   /    \    [    ]   ;  :   |  =  ,</li>
+        </ul>
+    <li>Command Structure: Syntax and Switches</li>
+        <ul>
+          <li>command - traget - modification - Enter</li>
+          <li>modification: "switch or option"</li>
+          <li>Windows: command /?</li>
+          <li>PowerShell: Get-Help command</li>
+          <li>Unix: man command</li>
+        </ul>
+    <li>Command Types</li>
+        <ul>
+          <li>Unix command types: builtins and external</li>
+          <li>Builtin: varies from shell to shell.</li>
+          <li>External: some external commands dont have manual page</li>
+        </ul>
+        <li>Windows PowerShell "Get-Command" similar to Linux builtin "type" command.</li>
+        <li>contents of working directory: Windows = dir | Linux = ls </li>
+        <li>dir /p (p for pause) is similar to Linux ls | more (more =pager)</li>
+        <li>ls -l (long listing)</li>
+        <li>cd change directory. Windows  cd \  , Linux cd / </li>
+        <li>Windows: moving between drives</li>
+          <ul>
+            <li> E:</li>
+            <li>E:\Food\Lang</li>
+          </ul>
+        <li>MacOS and Linux: moving between drives</li>
+          <ul>
+            <li>Mac: /Volumes </li>
+            <li>Unix: /mnt (drives) /media/user (removable drive)</li>
+          </ul>
+        <li>make directory: md/mkdir</li>
+          <ul>
+            <li>md : for windows</li>
+            <li>mkdir: for all OS.</li>
+          </ul>
+        <li>Removing directory</li>
+          <ul>
+            <li>rd: for windows</li>
+            <li>rmdir: for all OS</li>
+            <li>Linux: rm -r (recursive, remove anything inside)</li>
+            <li>WIndows: rm foldername /s (remove anytying inside)</li>
+          </ul>
+      <li>Reading Plaintext files</li>
+          <p>Linux: "cat" command- write out contents of files. Cat = concatenate = to join things together.</br>
+             "more" command is simple pager (pager is interactive reader) advance one line at at time or one page at a time.</br>
+             "less" command is advanced pager (navigate back and forth)
+            </p>
+      <li>Wildcards</li>
+            <ul>
+              <li>wildcard asterisk(*) and question mark (?)</li>
+              <li>dir * .txt </li>
+              <li>dir a* (any files start with a)</li>
+              <li>ls z* (any files start with z)</li>
+            </ul>
+      <li>Delete file</li>
+            <ul>
+              <li>Windows: del</li>
+              <li>Unix: rm</li>
+            </ul>
+      <li>Copy Move File</li>
+            <ul>
+              <li>1. focus the prompt on directory </li>
+              <li>2. type Windows: copy/move Linux:cp/mv and space</li>
+              <li>3. tyep filename to be copied/moved and space</li>
+              <li>4. type path of new location</li>
+              <li>5. Enter</li>
+            </ul>
+      <li>Pruning and Grafting Folder Tree</li>
+            <ul>
+              <li>Copy/move: folder with subfolder inside</li>
+              <li>Windows: xcopy (xmove doesn't exist)</li>
+                <ul>
+                  <li>copy command but with extra power to work with multiple directories.</li>
+                  <li>xcopy  C:\Big  E:\Big  /s</li>
+                </ul>
+              <li>robocopy</li>
+                <ul>
+                  <li>Microsoft introduce for server-Robust file copy</li>
+                  <li>robocopy: copy from one computer to another across network</li>
+                  <li>robocopy source  destination options</li>
+                  <li></li>
+                </ul>
+              <li>Linux: just "cp" and "mv"</li>
+                <ul>
+                  <li>cp -R (recursive) sourcefolder  destinationpath</li>
+                  <li>moving is easier, just use "mv" even without any modifications</li>
+                  <li>mv Desktop/Folder /mnt/storage</li>
+                </ul>
+            </ul>
+      <li>WIndows Commands</li>
+            <ul>
+              <li>chkdsk</li>
+                <ul>
+                  <li>scan, detect, repair file system issues and error.</li>
+                  <li>chkdsk /f (fix file system), /r (locate and repair bad sector)</li>
+                </ul>
+              <li>format</li>
+              <li>hostname</li>
+              <li>winver</li>
+              <li>gpupdate</li>
+                <ul>
+                  <li>group policies: define various security settings for WIndows system.</li>
+                  <li>group policies: can apply to standalone or systems on domain</li>
+                </ul>
+              <li>gpresult</li>
+                <ul>
+                  <li>quick overview of all security policies applied to user or computer</li>
+                  <li></li>
+                </ul>
+              <li>sfc</li>
+                <ul>
+                  <li>system file checker: scan,detect,restore important windows sytem files,folders,path.</li>
+                  <li>sfc /scannow</li>
+                </ul>
+              <li>shutdown</li>
+                <ul>
+                  <li>shutodwn /r (full shutdown and restart)</li>
+                  <li>shutdown /f (force running app to close)</li>
+                </ul>
+              <li>F1 key: rebuild previous command one letter at a time./li>
+            </ul>
+        <li>Mac and Linux commands</li>
+            <ul>
+              <li>See running processes</li>
+                <ol>
+                  <li>ps : detailed and customizable info about running processes</li>
+                  <li>top: interactive, updating whats running</li>
+                </ol>
+              <li>top: use to monitor or investiage system performance</li>
+              <li>ps: old, use to look for specific processes </li>
+                <ul>
+                  <li>ps aux</li>
+                  <li>a = processes for all users</li>
+                  <li>u = show process owner</li>
+                  <li>x = process not attached to terminal</li>
+                </ul>
+              <li>kill</li>
+                <ul>
+                  <li>killing processes in Unix: kill</li>
+                  <li>killing processes in Windows: taskkill</li>
+                </ul>
+              <li>grep</li>
+                <ul>
+                  <li>grep is filter. enable to search through text files or command output to find specific info and filter the rest</li>
+                  <li>ps aux | grep AppName</li>
+                </ul>
+              <li>find</li>
+                <ul>
+                  <li>search through and output list containing only the one matched.</li>
+                  <li>bigger than, exactly, name include, created on, modified on, etc</li>
+                </ul>
+              <li>apt-get</li>
+                <ul>
+                  <li>Debian based: Ubuntu, Mint, use APT: advanced packing tool</li>
+                  <li>apt-get: manage(install, uninstall, update) APT packages</li>
+                  <li>sudo apt-get install/update/upgrade appname</li>
+                  <li>apt can mange all software on system.</li>
+                </ul>
+              <li>yum</li>
+                <ul>
+                  <li>RedHat based: Fedora, CentOS, use RPM: Redhat Package Manager</li>
+                  <li>yum: manage(install,uninstall,update) RPM packages</li>
+                  <li>sudo yum install/update/upgrade</li>
+                </ul>
+              <li>nano</li>
+                <ul>
+                  <li>vi: old editor</li>
+                  <li>$ nano FileName</li>
+                  <li>Ctrl-X : to exit /save</li>
+                  <li>Move with Keyboard</li>
+                </ul>
+              <li>dd</li>
+                <ul>
+                  <li>used to create an exact, bit by bit image of, any form of block storage (hard drive volume, usb) aka copying drive</li>
+                  <li>$ dd  if=source block deivce  of=destination image file location</li>
+                  <li>backing up drive: dd if=source of=destination.bak</li>
+                  <li>wiping disk: dd if=source of=disktowipe</li>
+                </ul>
+              <li>df </li>
+                <ul>
+                  <li>df = display free disk space</li>
+                  <li>df -h (human friendly)</li>
+                </ul>
+              <li>shutdown</li>
+                <ul>
+                  <li>WIndows: shutdown options time</li>
+                  <li>shutdown -r now</li>
+                </ul>
+            </ul>
+          <li>Scripting</li>
+            <ul>
+              <li>script = small program that helps automate task by collecting series of commands and giving them a name.</li>
+              <li>shell = command line interpreter, interpret command you run.</li>
+              <li>shell = can execute "text file" by interpretting each line as if it were a "command"</li>
+              <li>shell scripts = text file that shell can interpret</li>
+            </ul>
+          <li>Script Type and Languages</li>
+            <ul>
+              <li>scripting is kind of programming: scripting language is type of programming language for writing scripts.</li>
+                <ol>
+                  <li>Batch File - .bat - WIndows DOS</li>
+                  <li>PowerShell - .psl - Windows</li>
+                  <li>Bash Shell - .sh  - UNIX (Bash = Bourne Again)</li>
+                  <li>Python     - .py  - flexible language</li>
+                  <li>JavaScript - .js  - browser scritping, command line program, extension</li>
+                  <li>Visual Basic - .vbs - Microsoft and Windows Apps</li>
+                </ol>
+              <li>Scripting Use Cases</li>
+                <ul>
+                  <li>Restart Machine</li>
+                  <li>Remap network drive</li>
+                  <li>Install Apps</li>
+                  <li>Automate backup</li>
+                  <li>Gather info/data</li>
+                  <li>Initiate Update</li>
+                </ul>
+              <li>Take Notes:detailed notes, save cmd history</li>
+              <li>Scripting consideration</li>
+                <ul>
+                  <li>unintentionally introducing malware: without carefully reading other's script</li>
+                  <li>inadvertently changing system settings: when script run.</li>
+                  <li>browser or system crashes due to mishandling of resources.</li>
+                </ul>
+            </ul>
   </ol>
-
+CH15: completed on April 8,2025
   <hr><br>
   ----------------------------------------------------------------
 <h3>Troubleshooting OS</h3>
