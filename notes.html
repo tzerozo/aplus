@@ -3667,9 +3667,126 @@ CH15: completed on April 8,2025
         <li>uninstall/reinstall/update applications</li>
       </ul>
     <li>resource requirements: verify requirements</li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Windows Recovery environment </li>
+      <ul>
+        <li>WinRE aka system recovery options: diagnose and fix all but most serious Windows boot problems.</li>
+        <li>if windows boot: hold SHIFT while clicking RESTART button OR Settings - System -Recovery - Restart</li>
+        <li>if windows not boot: boot WinRE from installation media - select REPAIR your computer</li>
+          <ul>
+            <li>Continue: exit and continue to Windows 11</li>
+            <li>Turn off your PC</li>
+            <li>Use a device: USB,network connection or windows recovery DVD-R</li>
+            <li>troubleshoot: reset PC or see advanced options</li>
+              <ul>
+                <li>Reset this PC :choose to keep or remove files, then reinstalls windows</li>
+                  <ul>
+                    <li>when "startup repair and system restore" fail, reinstall windows </li>
+                    <li>where windows get copy of OS?: spare copy of OS on hidden recovery partition.</li>
+                    <li>keep my files</li>
+                    <li>remove everything</li>
+                  </ul>
+                <li>Advanced Options</li>
+                  <ul>
+                    <l>Startup Repair(CompTIA: repair windows) : fix problems that keep windows from loading</l>
+                      <ul>
+                        <li>repairs corrupted registery by accessing backup copy on hard drive</li>
+                        <li>restoer critical boot File</li>
+                        <li>restore critical system and driver File</li>
+                        <li>rolls back any non working driver</li>
+                        <li>roll back update\</li>
+                        <li>runs chkdsk</li>
+                        <li>run mremory test </li>
+                      </ul>
+                    <l>Startup Settings: cahnge startup behavior</l>
+                    <l>Command Prmpot: cmd for advanced troubleshoot</l>
+                      <ul>
+                        <li>contains utilities for reapring and modifying low levle structure that points files system needs to boot up (bootrec/bcdedit)</li>
+                        <li>utilities for working with system storage devices and file system( diskpart, fsinfo, fsuilt).</li>
+                      </ul>
+                    <l>Uninstall updates (CompTIA: rollback update): remove recent instllaed updates</l>
+                    <l>UEFI firmware settings: change UEFI firmware setting</l>
+                    <l>System restore (CompTIA: restore): use restore point recorded on PC</l>
+                    <l>See more recovery options</l>
+                      <ul>
+                        <li>Use system image recovery tool: to restore system.</li>
+                        <li>Keep copy of system image (OS settings, newtowrk, app) to "reimage" computer quickly</li>
+                      </ul>
+                  </ul>
+              </ul>
+          </ul>
+      </ul>
+    <li>Rebuild Windows Profiles</li>
+      <ul>
+        <li>Each user account associated "user profile": records Desktop preferences, shortcuts, icons.</li>
+        <li>Rebuild windows profile:</li>
+          <ol>
+            <li>perform serveral direct registry edits</li>
+              <ol>
+                <li>Safe mode via WinRE - Advanced options - Startup settings</li>
+                <li>elevated cmd - run as admin - regedit</li>
+                <li>HKEY-LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList</li>
+                <li>select correct user - State entry - value 0</li>
+                <li>"RefCount" - DWORD (32bit) - value 0</li>
+              </ol>
+            <li>create new user account - copy old profile settings to new account</li>
+              <ol>
+                <li>Safemode - elevated cmd - net user administrator /active:yes</li>
+                <li>Reboot and log in as "admin"</li>
+                <li>create new user: copy old user folder content to new user folder</li>
+              </ol>
+          </ol>
+      </ul>
+    <li>Windows OS symptons</li>
+      <ol>
+        <li>BSoD</li>
+          <ul>
+            <li>BSoD appear when error occur that Windows cannot recover. (device drivers are one of the reason)</li>
+            <li>Startup Repair</li>
+          </ul>
+        <li>Frequent Shutdown</li>
+          <ol>
+            <li>Fast startup</li>
+            <li>Sleep mode</li>
+            <li>Driver problems</li>
+          </ol>
+        <li>Services not starting</li>
+        <li>Low memory warnings: Task manager - PRocess - Memory</li>
+        <li>Not enough USB controller resources: - too many plugged to controller.</li>
+        <li>System instability: Control panel - Security and maintenance - Reliability history - realibility monitor</li>
+        <li>No OS found: MBR might be corrupted: boot to Win recovery drive - system recovery options - startup repair</li>
+        <li></li>
+      </ol>
+    <li>Problems CPU,RAM,Power,Motherboard</li>
+      <ol>
+        <li>Post</li>
+          <p>check hardware, confirm everything working correctly befoere booting OS. Good-single beep-Windows boot.</p>
+        <li>Crash screens</li>
+          <p>BSoD could also be caused by bad hardware</p>
+        <li>Black screen</li>
+          <p>Black screen usually indicates hardware misconfigured, misconnectd, not working</p>
+        <li>No power</li>
+        <li>Slugglish performance</li>
+        <li>Overheating</li>
+          <ul>
+            <li>sympton: random shutdown,strange noise,strange graphical glitches,heat radiating</li>
+            <li>Fan cleanup: spin with your finger to test</li>
+            <li>Monitor CPU and GPU temp: HWiNFO64 (software)</li>
+          </ul>
+        <li>burning smell</li>
+        <li>frequent shutdown: failing hardware, update firmware</li>
+        <li>application crash</li>
+        <li>grinding noise</li>
+          <ul>
+            <li>Fans</li>
+            <li>hard drive</li>
+          </ul>
+        <li>capacitor swelling</li>
+          <ul>
+            <li>capacitor - helps regulate voltage going to other component (hard drive, GPU)</li>
+            <li>Age, overcurrent, design defecct</li>
+          </ul>
+        <li>inaccurate date/time</li>
+      </ol>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
