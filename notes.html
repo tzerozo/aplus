@@ -3918,20 +3918,246 @@ CH15: completed on April 8,2025
 <h3>Networking essential</h3>
   <ol>
     <li>Frames and NIC</li>
+      <ul>
+        <li>frames= data is moved from one device to another in discrete chuncks called "frame"</li>
+        <li>NIC = create and process frame</li>
+        <li>Packet = included within a frame</li>
+        <li>MAC address = NIC built in identifier = address unique to network card, media access control address.</li>
+          <u>
+            <li>MAC address = binary number, 1s and 0s. 48bit long</li>
+            <li>Hexa decimal=  shorthand represent strings of 1s and 0s</li>
+            <li>48:A4:72:F2:A5:ED</li>
+          </u>
+        <li>Frame</li>
+          <ul>
+            <li>frame contain MAC address of NIC card to which the data is being sent</li>
+            <li>frame contain MAC address of NIC cardd that sent the data</li>
+            <li>Data inside fram can vary in size = depend of type of frame</li>
+            <li>frame contain "data check" to verify data was in good order. CRC: cyclic redundancy checck</li>
+            <li>FRAME = Recipient MAC + Sender MAC + Data + CRC</li>
+            <li>How big? How sender and receiver understand? Ethernet</li>
+          </ul>
+      </ul>
     <li>Ethernet</li>
-    <li></li>
-    <li></li>
-    <li></li>
+      <ul>
+        <li>Ethernet= series of standards, defined everything necessary to get data from one computer to another</li>
+        <li>Ethernet flavors = improvements in speed, signaling, cabling</li>
+        <li>Speed</li>
+          <ul>
+            <li>10BASE-T = 10Mbps</li>
+            <li>100BASE-TX (fast ethernet) = 100Mbps</li>
+            <li>1000BASE-T (gigabit ethernet) = 1000Mbps</li>
+            <li>1OGBASE-T = 10Gbps</li>
+          </ul>
+      </ul>
+    <li>Ethernet Star Bus</li>
+      <ul>
+        <l>Bus = internal wiring in the box</l>
+        <l>Star = wires leading from  the box to hosts</l>
+        <l>Topology = physical or logical layout of network connections, how everything connects</l>
+        <l>Switch/box = common point of connection for network devices.take signal from one host and repeat to other hosts.</l>
+        <l>Segment = connetion between computer and switch</l>
+        <li>Ethernet segment cable length = 100 meters</li>
+        <li>Splitter = negatively affect signal quality</li>
+      </ul>
+    <li>UTP</li>
+      <ul>
+        <li>UTP specified cabling for 100BASE-T 1000BASE-T 10GBASE-T</li>
+        <li>Twisted Pari Cabling = AWG 22-26 gauge copper wire twisted together into color coded pair. Each wire individually insulated and encased as a group in common jacket</li>
+        <li>Categories = define max speed at which data can be transferred aka Bandwidth.</li>
+        <li>TIA: telecommunication industry association - establish UTP Categories</li>
+          <ul>
+            <li>CAT1 : telephone line</li>
+            <li>CAT3 : 10Mbps, 4pairs support 100Mbps</li>
+            <li>CAT5 : 100Mbps</li>
+            <li>CAT5e : "enhanced" 1Gbps and 2.5Gbps at 100 meter segment</li>
+            <li>CAT6 : 1Gbps, 2.5Gbps, 5Gbps - 100m segment: 10Gbps - 55m segment</li>
+            <li>CAT6a : "augmented" 10Gbps at 100m segment</li>
+            <li>CAT6e : "nonstandard term" used by manufacturers</li>
+            <li>CAT7 : 10Gbps at 100m segment - shielding for individual wire paris reduces crosstalk and noise problem.</li>
+          </ul>
+      </ul>
+    <li>STP</li>
+      <ul>
+        <li>Twisted paris of wires surrounded by shielding to protect from EMI electromanetic interference.</li>
+        <li>direct burial = thicker jacket, waterproofing</li>
+      </ul>
+    <li>Ethernet with Twisted Pair</li>
+      <ul>
+        <li>CAT3 = 10BASE-T, CAT5 = 100BASE-T, CAT5e = 1000BASE-T, CAT6 = 10GBASE-T</li>
+        <li>10BASE-T and 100BASE-T = two pairs of wires: sending pair and receiving pair.</li>
+        <li>1000BASE-T and up = four pairs of wires:</li>
+        <li>RJ Registered Jack Connector </li>
+          <ul>
+            <li>RJ11: phone to phone jack on wall. two pairs of wires, but phone use only one pair.</li>
+            <li>RJ45: UTP connector, 4 pairs of wires</li>
+            <li>RJ45 standards for UTP cables</li>
+              <ul>
+                <li>T568A</li>
+                <li>T568B</li>
+                <li>Dont have to follow standard as long as you use same pairings on each end of cable, but its better for record keeping</li>
+                <li>Pin1: T568A (white/green)   | T568B (white/orange)</li>
+              </ul>
+            <li>Plenum vs PVC</li>
+              <ul>
+                <li>SPACE in ceiling, under floor, in walls = plenum space.</li>
+                <li>Jacket = protective sheathing for network cables = made from plastic</li>
+                <li>PVC: polyvinyl chloride = standard nework cable jacket, produce noxious fumes when burnt.</li>
+                <li>Plenum grade cable = fire-retardant jacket network cable.</li>
+              </ul>
+          </ul>
+    <li>Fiber Optic</li>
+          <ul>
+            <li>Fiber use light instead of electricity, immune to electrical problems (lighting, short circuit, static)</li>
+            <li>Fiber travel farther: 2000m (UTP 100m)</li>
+            <li>62.5/125 multimode fiber cable:</li>
+              <ul>
+                <li>Fiber optics are "half duplex", data flows only one way - requires two cables </li>
+                <li>sending fiber strand:</li>
+                <li>receiving fiber strand:</li>
+              </ul>
+            <li>Fiber connectors</li>
+              <ol>
+                <li>ST - straight tip (round)</li>
+                <li>SC - subscriber connector (square)</li>
+                <li>LC - lucent connector (two square)</li>
+              </ol>
+            <li>Light</li>
+              <ul>
+                <li>regular light or laser light can be sent down in fiber cable</li>
+                <li>Laser light network technology = use single mode fiber cabling.</li>
+                  <ul>
+                    <li>Using laser = light rays are aligned, reduce dispersion over length, high tanfsre rate over long distance</li>
+                  </ul>
+                <li>LED light network technology = generate light signals that use multimode fiber cabling</li>
+                  <ul>
+                    <li>multimode fiber lights enter from many different angles, light rays bounce around cable core</li>
+                    <li>Multiple reflection angles = disperse over long distances</li>
+                  </ul>
+                <li>Ether Fiber Cabling Standards</li>
+                  <ul>
+                    <li>over 100 differnt standards: 10GBASE-SR 100GBASE-LR1</li>
+                    <li>Fiber optic switch and fiber optic network card required.</li>
+                    <li>Multimode length = 600m , 10Gbps</li>
+                    <li>Single mode length = 1800miles , 319 terabits per second</li>
+                  </ul>
+              </ul>
+          </ul>
+      <li>Coaxial</li>
+          <ul>
+            <li>Early Ethernet use coaxial cable, instead of UTP. Still use for "cable modem and satelllite connections"</li>
+            <li>Core - surrounded by insulation - surrounded by protective insulating cover</li>
+            <li>Coax cable rating: RG</li>
+              <ul>
+                <li>RG-59: 75 ohms</li>
+                <li>RG-6: 75 ohms</li>
+              </ul>
+            <li>RG is rated by impedance , effective resistance to flow of AC signal through cable, measured in ohms</li>
+            <li>Coax connector: F-type connector(back of TV) and BNC connector</li>
+          </ul>
+      </ul>
+    <li>Typical LAN</li>
+      <ul>
+        <li>LAN = group of computers located physically close to each other.</li>
+        <li>Broadcast Domain = group of computer connected by one or more SWITCHES, all nodes receive "broadcast frames" from every other nodes.</li>
+        <li>Structured cabling = set of standards collectively, create safe and reliable calbing infra for all devices that may need interconnection.</li>
+      </ul>
+    <li>Structured Cable Network Components</li>
+      <ol>
+        <li>Horizontal cabling</li>
+          <ul>
+            <li>All cables run Horizontally from telecommunication rom to workstations (in work area)</li>
+            <li>run = single piece of installed  Horizontal cabling</li>
+            <li>TIA standards: type of wires, number of pairs of wirs, fire ratings</li>
+            <li>UTP cables come in 2 types</li>
+              <ol>
+                <li>solid core: each wire use single solid wire, better conductor, stiff, will break if handle roughly</li>
+                <li>stranded core: each wire is bundle of tiny wire strands. less good conductor, stand up to substantial handling </li>
+                <li>Horizontal cabling must be SOLID CORE per TIA standard.</li>
+              </ol>
+          </ul>
+        <li>Telecommunication Room</li>
+          <ul>
+            <li>Equipment racks provides safe, stable platform for all hardware components. 19 inch wide</li>
+            <li>RU: rack unit = 1.75 inches</li>
+            <li>Patch Panels</li>
+              <ul>
+                <li>patch panel = box with row of female conectors(ports) in front and permanent connections in back for horizontal connection</li>
+                <li>punchdown block aka 110-punchdown block = patch panel specitl type of connector</li>
+                <li>punchdown block = has small metal-lined grooves for individual wires.</li>
+                <li>punchdown tool = has blunt end taht forces wire into groove.metal in groove slices the cladding enough to make contact</li>
+                <li>TIA labeling methodology: ANSI/TIA 606</li>
+              </ul>
+            <li>Patch Panel Types</li>
+              <ul>
+                <li>UTP, STP, fiber ports or combination: 8,12,24,48 or more ports.</li>
+                <li>Patch cable: connect ports from patch panel to switch  (2ft - 5ft) UTP cables</li>
+                <li>Most prefabricated patch cable = come with reinforced (booted) connector, designed to handle multiple insertions and removals.</li>
+              </ul>
+            <li>Patch cable</li>
+              <ul><li>Stranded cable requires specific crimps, dont use crimps designed for solid cable</li></ul>
+              <ul>Crimping RJ45 on UTP cable
+                <li>cut cable square using RJ45 crimmper or scissor</li>
+                <li>strip off one-half inche of plastic jacket from cable end (remove cable cover/shield, expose wire)</li>
+                <li>insert each wire according to TIA 568A/B</li>
+                <li>insert crimp to crimper and press</li>
+              </ul>
+            <ul>
+              <li>market threads or ripcord: extra strands along the crimped wire, strengthen cable and enable installer to rip shealth off easily</li>
+              <li>boot should be part of good patch cable</li>
+            </ul>
+                
+          </ul>
+        <li>Work area</li>
+          <ul>
+            <li>work area = office, cublices = wall outlet that serves a termnination point for horizontal network cables</li>
+            <li>wall outlet = one or two female jackes, mounting bracket, faceplate</li>
+            <li>workstation to wall outlet = patch cable.</li>
+          </ul>
+      </ol>
+    <li>WAN</li>
+      <ul>
+        <li>WAN = widespread group of computers connected using long distance technologies</li>
+        <li>Router = connect LANs into WAN</li>
+      </ul>
+    <li>Routing: requires routers and routing capacle protocol to function correctly, no broadcast frame can go through router.</li>
+    <li>to go beyond LAN, requires network protocol: a way machines agree to communicate, that can handle routing. TCP/IP</li>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
 <h3>Local Area Network</h3>
   <ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Interconneting Networks</li>
+      <ol>
+        <li>IPv4</li>
+        <li>IPv6</li>
+        <li>DNS</li>
+        <li>IP config</li>
+        <li>TCP vs UDP</li>
+        <li>TCP/IP settings</li>
+        <li>TCP/IP tools</li>
+        <li>TCP/IP config</li>
+        <li>APIPA</li>
+      </ol>
+    <li>Wired Network</li>
+      <ol>
+        <li>NIC install</li>
+        <li>Config IP address</li>
+        <li>Connect switch</li>
+      </ol>
+    <li>Network organizaton and access control</li>
+      <ol>
+        <li>Shared resource</li>
+        <li>Workgroups</li>
+        <li>Domains</li>
+        <li>File servers and Drive mapping</li>
+        <li>Sharing printers</li>
+      </ol>
+    <li>Troubleshooting networks</li>
+      <ol>
+        <li>Physical cabling</li>
+        <li>Common problems</li>
+      </ol>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
