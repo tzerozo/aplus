@@ -4349,15 +4349,73 @@ CH15: completed on April 8,2025
             <li>the name "WORKGROUP" have no special meaning, it can be anything you want.</li>
             <li>Every computer on network needs "same workgroup name" to be able to sharte resoures.</li>
             <li>Workgroup lacks "centralized control" over network. all systems connected to network are equals.</li>
+            <li>NTFS  permission: superior local control over all resources on computer</li>
+            <li>Share permission: only apply to network shares</li>
           </ul>
         <li>Domains</li>
+          <ul>
+            <li>Domain: network organization that centralizes user accounts, password, and access to resources</li>
+            <li>Domain controller: computer running Windows Server, stores set of domain accounts</li>
+            <li>Domain enable anyone with domain account log on to any computer in domain with single account, SSO.</li>
+            <li>Active Directory Domain: store information about domain, printer, computer, location, anything.</li>
+            <li>Active Directory powered by LDAP: lightweight directory access protocol, TCP 389</li>
+            <li>Windows server - promote to domain controller - it creats Active Directory - each computer join domain</li>
+            <li>Domain Organization</li>
+              <ul>
+                <li>Active Directory : stores everything about a network.</li>
+                <li>Log to "domain controller": run "AD users and computers utility"</li>
+                <li>Domain has OU aka folder-ish</li>
+              </ul>
+            <li>Domain Administration</li>
+              <ul>
+                <li>Domain also have "domain admins account", enable to join a computer to domain.</li>
+                <li>Groups aka security groups in AD: same as user groups.</li>
+                <li>Domain Admin: can add "logon scripts" that runs every time user logs in.</li>
+                <li>Domain controler also called Authentication server as it authenticated users</li>
+                <li>AD enables OUs </li>
+              </ul>
+          </ul>
         <li>File servers and Drive mapping</li>
+          <ul>
+            <li>Mapping a drive: when user constantly access shared drive over network</li>
+            <li>Map network drive - mapped on sign-in and whether it requires different credentials</li>
+            <li>AD domain: network shares auto mapped by Group policy or login scripts</li>
+          </ul>
         <li>Sharing printers</li>
       </ol>
     <li>Troubleshooting networks</li>
       <ol>
         <li>Physical cabling</li>
+          <ul>
+            <li>No internet ??</li>
+            <li>run ipconfig - APIPA? (disconnct between PC and DHCP)</li>
+            <li>device manager - NIC disable?</li>
+            <li>link light: may go off and come back if you are dealing with "port flapping"</li>
+            <li>Port flapping: when connection on switch or NIC port repeatly goes up and down</li>
+            <li>Check NIC: loopback test - sends dat out of NIC and check to see if it comes back.</li>
+            <li>loopback plus: check actual connting pins in NIC port too.</li>
+            <li>TDR time domain reflectometer: Fluke microscanner, send signal down cable and can time total lenght of working cable</li>
+            <li>Toner: tone generator and tone probe.</li>
+            <li>tone generator: connects to cable using alligator clips, tiny hooks, network jacks and send electrical signal at certain frequency</li>
+            <li>tone probe: emits sound when it is placed near a cable connected to tone generator.</li>
+            <li></li>
+          </ul>
         <li>Common problems</li>
+          <ul>
+            <li>net command</li>
+              <ul>
+                <li>net: view network quickly</li>
+                <li>net use: mapping network shares</li>
+                <li>net config: snapshot of windwos network settigs</li>
+              </ul>
+            <li>nbtstat command</li>
+              <ul>
+                <li>old command: NetBIOS over TCP/IP </li>
+                <li>NetBIOS used for many aspects of LAN file sharing back then.</li>
+                <li>nbsttat -n (computer NetBIOS name) </li>
+                <li>nbtstat -c (local cache)</li>
+              </ul>
+          </ul>
       </ol>
   </ol>
   <hr><br>
