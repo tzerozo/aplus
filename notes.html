@@ -4422,21 +4422,169 @@ CH15: completed on April 8,2025
   ----------------------------------------------------------------
 <h3>Wireless Network</h3>
   <ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Wireless Networking Component</li>
+      <ul>
+        <li>wireless networks : use radio waves to communicate.</li>
+        <li>wireless networking solutions: WLANs based on IEEE 802.11 wireless standard aka Wi-Fi and bluetooth</li>
+        <li>WAP: centrally connecct wireless network devices in same way hub connects wired ethernet devices.</li>
+        <li>PoE standards: 802.3af (PoE), 802.3at(PoE+), 802.3bt(PoE++)</li>
+        <li>PoE injector: can extend PoE connection up to 100m</li>
+      </ul>
+    <li>Wireless Networking Software</li>
+      <ul>
+        <li>Wireless devices operate by using CSMA/CA networking scheme.</li>
+        <li>Collision avodiance: in wireless</li>
+        <li>Collision detection: in wired</li>
+        <li>Wireless device: listen on wireless medium - to see if another is currently broadcasting data</li>
+        <li>if yes, wait random time and retry</li>
+        <li>RTS/CTS protocol: request to send/clear to send: sends RTS frame to receiving device </li>
+        <li>Receiver send CTS </li>
+        <li>Sender sent one data, wait for ACK before another packet.</li>
+        <li>Plug and play</li>
+      </ul>
+    <li>Wireless Infra</li>
+      <ul>
+        <li>wireless network use WAPs to connect to wireless network devices to wired network segment</li>
+        <li>BSS: basic service set: single WAP servicing a given area</li>
+        <li>EBSS: lean on wireless reapeaters/extenders/WAPs</li>
+        <li>Long range fixed wireless: directional antennas</li>
+        <li>WMN wireless mesh network: mesh devices act like router, forward traffic for each other.</li>
+      </ul>
+    <li>Wireless Networking Security</li>
+      <ol>
+        <li>Wireless networks use three methods to secure access to network itself and data being transferred</li>
+        <li>MAC address filtering</li>
+        <li>Authentication</li>
+        <li>Data Encryption</li>
+      </ol>
+      <ul>
+        <li>SSID</li>
+          <ul>
+            <li>servce set identifier -network name - defines wireless network.</li>
+            <li>SSID name is included in "data packet hearder" broadcast in wireless coverage area</li>
+            <li>Disabling SSID and changing channels</li>
+          </ul>
+        <li>Access Point placement and radio power</li>
+          <ul>
+            <li>Many WAP enable to adjust radio power levels of antenna</li>
+            <li>WAP physical ethernet ports are not password protected or encrypted</li>
+          </ul>
+        <li>Guest networks</li>
+        <li>MAC address filtering</li>
+          <ul>
+            <li>method that enables you to limit access to your wireless network based n physical NIC's MAC address.</li>
+            <li>table stored in WAP: list MAC addres that are premitted to participate </li>
+            <li>Attacker can use software to listen for MAC address</li>
+          </ul>
+        <li>Wireless security protobls and authenticaion methods</li>
+          <ul>
+            <li>Wireless security protocol: provide authentication and encryption to lock down wireless network.</li>
+            <li>Encryption scrambles signals on radio waves and makes communication among users secure</li>
+            <li>WEP: wired equivalent privacy WAP: wi-fi protected access</li>
+            <li>WPA2: AES (advanced encryption standard) to provide secure environment</li>
+            <li>WPA2 compatiable with TKIP: temporal key integrity protocol: older encryption method introduced with WPA</li>
+            <li>enabling TKIP will make less secure</li>
+            <li>WPA3: encryption to protect data of users on public neteworks.</li>
+          </ul>
+      </ul>
+    <li>IEEE 802.11 </li>
+      <ul>
+        <li>wireless networks use radio frequency technology, particularly 802.11 Wifi standard.</li>
+        <li>Bluetooth also use RF</li>
+        <li>802.11 aka wi-fi: defines methods devices may use to communicate via "spread-spectrum radio waves"</li>
+        <li>ISM: industrial, scientific, and medial radio bands.</li>
+        <li>Band: contiguous range of frequencies that is usualaly divided up into discrete slices called channels.</li>
+        <li>802.11 based wireless technologies broadcast and receive on : 2.4,5, 6 GHz band.</li>
+        <li>Channel: 20MHz slice of its broader radio band.</li>
+        <li>Bands</li>
+          <ol>
+            <li>2.4GHz: 11 or 13 channels, overlap. 1,6,11.</li>
+            <li>5GHz: nonoverlapping. US, 25 channels. wide channel:40MHz, ultrawide channel: 80MHz</li>
+            <li>6GHz: less congestion, superwide channel: 160MHz</li>
+          </ol>
+        <li>Standards</li>
+          <ol>
+            <li>802.11a: 5GHz, 54Mbps,150ft</li>
+            <li>802.11b: 2.4GHz, 11Mbps, 300ft</li>
+            <li>802.11g: 2.4GHz, 54Mbps, 300ft</li>
+            <li>802.11n: 2.4 & 5GHz, 600Mbps, 300ft, Wi-fi 4, MIMO, WAP employ transmit beamforming, dual band. </li>
+            <li>802.11ac: 5GHz, 1Gbps, 300ft, mulliuser MIIMO, tri ban, Wifi-5, </li>
+            <li>802.11ax: 2.4,5,6GHz, 9Gbps, 300ft, HEW: high efficiency wireless</li>
+          </ol>
+      </ul>
+    <li>Wi-Fi coverage</li>
+      <ul>
+        <li>dipole antenna: straight  wire, to provide omni-directional coverage.looks like stick, inside two antenna arms or poles, aligned on atnenna aixs; aka dipole.</li>
+        <li>increasing dipole size will increase its gains evenly in all directions</li>
+        <li>directional antennas-parabolic dish type, increase gain and range in specific direction.</li>
+        <li>ratio of increase aka gain, measured in decibels(dB).</li>
+        <li>Long range fiexd wireless use directional antenna.</li>
+        <li>level of transmission power = plays big role in distance you can communicate over.</li>
+      </ul>
+    <li>Bluetooth</li>
+      <ul>
+        <li>designed to create small wireless networks preconfigued to do very specific jobs.</li>
+        <li>BT use broadcasting method - that switches between any of 79 frequencies available in 2.45GHz range.</li>
+        <li>BT hops frequencies some 1600 times per second, hihgly resistant to interference.</li>
+        <li>Max Power USage</li>
+          <ol>
+            <li>Class1: 100mW 100meters</li>
+            <li>Class2: 2.5mW 10meters</li>
+            <li>Class3: 1mW   1meter</li>
+          </ol>
+        <li></li>
+      </ul>
+    <li>Wi-Fi config</li>
+      <ul>
+        <li>WAP default ip address on browser 192.168.1.1</li>
+        <li>RADIUS: setting WPA3 for Enterprise assume you enable authentication by using RADIUS server</li>
+        <li>AAA server: authenticate users, authorize what resource to access, and logs all action for accountability.</li>
+        <li>RADIUS and TACACS+ : are main protocols that power AAA whether it involves one server or several</li>
+        <li>RADIUS and TACACS+ are protocols: for authenticating network users and managing what resouces they may access.</li>
+        <li>RADIUS, open standard, partial encryption, UDP 1812 and 1813</li>
+        <li>TACACS+, cisco, fully encrypted, TCP 49</li>
+        <li>Good network authentication and authroization: dosent stop at the gate (RADIUS )</li>
+        <li>Well desgined network: validate authenticaion and authorization when clients access network resources.</li>
+        <li>Kerberos,authenticaion protocol, enables central authorization server to pass out keys that individual clients can present to access resources as needed</li>
+        <li></li>
+      </ul>
+    <li>Bluetooth config</li>
+    <li>Troubleshooting Wi-Fi</li>
+    <li>hardware</li>
+    <li>software</li>
+    <li>connectivity</li>
+    <li>configuration</li>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
 <h3>Internet</h3>
   <ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Connecting to Internet</li>
+      <ol>
+        <li>DSL</li>
+        <li>Cable</li>
+        <li>Fiber</li>
+        <li>Wi-fi</li>
+        <li>Cellular</li>
+        <li>Satellite</li>
+      </ol>
+    <li>Internet Application Protocols</li>
+    <li>Remote Access</li>
+    <li>VPN</li>
+    <li>Desktop Management Software</li>
+    <li>RMM</li>
+    <li>FTP</li>
+    <li>TFTP</li>
+    <li>SFTP</li>
+    <li>Internet Troubleshooting</li>
+      <ul>
+        <li>No connectivity</li>
+        <li>Limited connection</li>
+        <li>Local connectivity</li>
+        <li>Slow network speed</li>
+        <li>Latency and jitter</li>
+        <li>Poor VoIP call quality</li>
+      </ul>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
