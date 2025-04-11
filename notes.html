@@ -4687,16 +4687,67 @@ CH15: completed on April 8,2025
 <h3>Virtualization</h3>
   <ol>
     <li>Hardware virtualization</li>
+      <ul>
+        <li>Physical host- hypervisor software - create environments aka VM/guests</li>
+        <li>Hypervisor: allocates fractions of host' physical ral hardware resource to power virtual devices (VMs)</li>
+        <li>In hardware virtual, hypervisor take supervisor role and divide hardware resource among VMs.</li>
+      </ul>
     <li>Client side virtualization</li>
+      <ul>
+        <li>OS installed directly on hardware using programming called "supervisor/kernel".</li>
+        <li>Kernel = handles low level interaction among hardware and software (task scheduling, time, resources).</li>
+        <li>Client side Virtualization = when VM host also serves as someone's day to day workstatoin.</li>
+      </ul>
     <li>Benefits of virtualization</li>
+      <ul>?
+        <li>Saving resources:</li>
+        <li>Simplify system management and security: VMs are simply a File</li>
     <li>VM purpose</li>
     <li>Create VM</li>
+        <ul>
+          <li>Intel: VT-x</li>
+          <li>AMD: AMD-V</li>
+          <li>Virtual Network: 
+              <ul>
+                <li>create internal network for multiple VMS withn same hypervisor: enable them to communicate each other</li>
+                <li>place VM on virtual nework tha only enables it ot communicate with host </li>
+                <li>bridge VM's NIC to host's NIC: enable VM to join host's network</li>
+                <li>provide VM with no network: isolate from other VM</li>
+              </ul>
+          </li>
+        </ul>
     <li>Server side virtualization</li>
+        <ul>
+          <li>Bare metal hypervisor: no other software between hypervisor and hardware - just bare metal.</li>
+          <li>Type1: bare metal, Type2: applications (VMWare)</li>
+        </ul>
     <li>CLOUD</li>
     <li>service layer cake</li>
+        <ul>
+          <li>IaaS</li>
+          <li>PaaS</li>
+          <li>SaaS</li>
+        </ul>
     <li>ownership and access</li>
+        <ul>
+          <li>Public cloud</li>
+          <li>Private cloud</li>
+          <li>Community cloud</li>
+          <li>hybrid cloud</li>
+        </ul>
     <li>cloud Characteristics</li>
+        <ul>
+          <li>Shared resource</li>
+          <li>Rapid elasticity: expand</li>
+          <li>Metered utilization</li>
+          <li>High availability</li>
+          <li>File synchronization</li>
+        </ul>
     <li>Desktop virtualization</li>
+        <ul>
+          <li>VDI virtual desktop infrastructure, each user's client program connects to autom managed VM running on central server</li>
+          <li></li>
+        </ul>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
