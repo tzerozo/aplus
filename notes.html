@@ -4562,27 +4562,123 @@ CH15: completed on April 8,2025
     <li>Connecting to Internet</li>
       <ol>
         <li>DSL</li>
+          <ul>
+            <li>Upload 1Mbps, Download 3Mbps</li>
+            <li>House should be short distance from main phone service switching cetner(CO Central Office 100 to 18000 ft)</li>
+            <li>ADSL: asymmetric: slow upload (up to 1Mbps), faster download (3-15Mbps)</li>
+            <li>SDSL: same upload and download</li>
+          </ul>
         <li>Cable</li>
+          <ul>
+            <li>faster than DSL, upload: 5 to 35Mbps, download: 15 to 2000Mbps</li>
+            <li>RG-59/RG-6, - connect ot cable modem - connect router</li>
+            <li>Modem: describe a box that takes incoming signal from internet and translates into computer can understand</li>
+          </ul>
         <li>Fiber</li>
+          <ul>
+            <li>FTTN: fiber to the node:</li>
+              <ul>
+                <li>provider to box in neighborhood</li>
+                <li>box to home/office via coaxial/Ehternet cabling</li>
+                <li>ATT: download and uplaod: 300Mbps to 5Gbps</li>
+              </ul>
+            <li>FTTP: fiber to the premises: </li>
+              <ul>
+                <li>provider - box in home/ofice, fiber whole way</li>
+                <li>BOX = ONT = optical network terminal: input for fiber connection, Ethernet/coax for router to computer</li>
+                <li>Verizon: download and upload: 300Mbps to 1Gbps</li>
+              </ul>
+            <li>Google Fiber : 1 -2 Gbps</li>
+          </ul>
         <li>Wi-fi</li>
+          <ul>
+            <li>WISP: wireless internet service provider</li>
+            <li>customer install antenna outside house</li>
+          </ul>
         <li>Cellular</li>
+          <ul>
+            <li>WWAN: wireless WAN, way to get internet with cellular connection</li>
+            <li>Cellular data service: 1G, 2G, 3G, 4G, 5G</li>
+            <li>GSM: global system for mobile communication: GPRS , EDGE, LTE(4G): 100Mbps up, 1Gbps down</li>
+            <li>CDMA: code division multiple access: EV-DO</li>
+            <li>5G : up to 20Gbps per specs.</li>
+            <li>Hotspot: device that connects via cellular and shares its internet acess</li>
+            <li>Thethering: using hotspot to connect to internet</li>
+          </ul>
         <li>Satellite</li>
+          <ul>
+            <li>down 25Mbps up 3Mbps</li>
+            <li>Satellite dish- coax cable to satellite modem- RJ-45 - router/computer</li>
+          </ul>
       </ol>
     <li>Internet Application Protocols</li>
+      <ul>
+        <li>Hashing/Code signing: cryptographic techniques</li>
+        <li>Checksum: create by running that file through a cryptographic hash function, which outpus digital fingerprint for a file.</li>
+        <li>CA: certificatte authority: </li>
+        <li>Proxy server: to filter employee internet acces for unsfae content.</li>
+        <li>Proxy server: enable multiple connections to internet to go through one protected computer.</li>
+        <li>SIP: session initiation protocol for VoIP</li>
+        <li></li>
+      </ul>
     <li>Remote Access</li>
+      <ul>
+        <li>Telnet: terminal emulation program, enalbe to connect to server/router and run commands as if you are infront of server</li>
+        <li>SSH: encrypted connection, can move file or TCP/P network traffic through secure connection aka tunneling (SFTP,VPN).</li>
+        <li>remote desktop:
+            <ul>
+              <li>RDP : remote desktop protocol</li>
+              <li>VNC: virtual network computing</li>
+              <li>RDC: windows</li>
+            </ul>
+        </li>
+        <li>Windows Remote Assistance: </li>
+      </ul>
     <li>VPN</li>
+      <ul>
+        <li>encrypted tunnel between two points over open internet -creates a VPN</li>
+      </ul>
     <li>Desktop Management Software</li>
+      <ul>
+        <li>Enpoint management software = full suite of management tools.</li>
+        <li>Desktp management software</li>
+      </ul>
     <li>RMM</li>
+      <ul>
+        <li>Remote monitoring and management: builds on capabilities of desktop or endpoint mgmt software</li>
+        <li>SNMP enables remote monitoring and config of anything on a network.</li>
+      </ul>
     <li>FTP</li>
+      <ul>
+        <li>to access FTP site: use FTP client (FileZilla or Cyberduck)</li>
+        <li>For internet' file: access FTP server though browser</li>
+        <li>TCP 20,21</li>
+      </ul>
     <li>TFTP</li>
+      <ul>
+        <li>UDP 69</li>
+        <li>Lacks FTP features: authenticaion and file listing</li>
+      </ul>
     <li>SFTP</li>
+      <ul>
+        <li>SFTP is network protocl for transferring files over encrypted SSH connection.</li>
+        <li>SFTP TCP 22</li>
+      </ul>
     <li>Internet Troubleshooting</li>
       <ul>
         <li>No connectivity</li>
         <li>Limited connection</li>
+          <ul>
+            <li>netstat: shows all connections between computer and other computer</li>
+            <li>QoS: </li>
+          </ul>
         <li>Local connectivity</li>
         <li>Slow network speed</li>
         <li>Latency and jitter</li>
+          <ul>
+            <li>low latency is more important than high speed</li>
+            <li>jitter: caused by rapid latentcy fluctuation, make packets arrive in bursts or out of order.</li>
+          </ul>
         <li>Poor VoIP call quality</li>
       </ul>
   </ol>
@@ -4590,11 +4686,17 @@ CH15: completed on April 8,2025
   ----------------------------------------------------------------
 <h3>Virtualization</h3>
   <ol>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Hardware virtualization</li>
+    <li>Client side virtualization</li>
+    <li>Benefits of virtualization</li>
+    <li>VM purpose</li>
+    <li>Create VM</li>
+    <li>Server side virtualization</li>
+    <li>CLOUD</li>
+    <li>service layer cake</li>
+    <li>ownership and access</li>
+    <li>cloud Characteristics</li>
+    <li>Desktop virtualization</li>
   </ol>
   <hr><br>
   ----------------------------------------------------------------
